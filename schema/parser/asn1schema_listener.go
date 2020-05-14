@@ -8,11 +8,20 @@ import "github.com/antlr/antlr4/runtime/Go/antlr"
 type ASN1SchemaListener interface {
 	antlr.ParseTreeListener
 
-	// EnterTag is called when entering the tag production.
-	EnterTag(c *TagContext)
+	// EnterModule is called when entering the module production.
+	EnterModule(c *ModuleContext)
+
+	// EnterAssignment is called when entering the assignment production.
+	EnterAssignment(c *AssignmentContext)
 
 	// EnterPrimitive is called when entering the primitive production.
 	EnterPrimitive(c *PrimitiveContext)
+
+	// EnterPrimitive_definition is called when entering the primitive_definition production.
+	EnterPrimitive_definition(c *Primitive_definitionContext)
+
+	// EnterTag is called when entering the tag production.
+	EnterTag(c *TagContext)
 
 	// EnterContext_flag is called when entering the context_flag production.
 	EnterContext_flag(c *Context_flagContext)
@@ -44,11 +53,20 @@ type ASN1SchemaListener interface {
 	// EnterField_name is called when entering the field_name production.
 	EnterField_name(c *Field_nameContext)
 
-	// ExitTag is called when exiting the tag production.
-	ExitTag(c *TagContext)
+	// ExitModule is called when exiting the module production.
+	ExitModule(c *ModuleContext)
+
+	// ExitAssignment is called when exiting the assignment production.
+	ExitAssignment(c *AssignmentContext)
 
 	// ExitPrimitive is called when exiting the primitive production.
 	ExitPrimitive(c *PrimitiveContext)
+
+	// ExitPrimitive_definition is called when exiting the primitive_definition production.
+	ExitPrimitive_definition(c *Primitive_definitionContext)
+
+	// ExitTag is called when exiting the tag production.
+	ExitTag(c *TagContext)
 
 	// ExitContext_flag is called when exiting the context_flag production.
 	ExitContext_flag(c *Context_flagContext)

@@ -21,17 +21,35 @@ func (s *BaseASN1SchemaListener) EnterEveryRule(ctx antlr.ParserRuleContext) {}
 // ExitEveryRule is called when any rule is exited.
 func (s *BaseASN1SchemaListener) ExitEveryRule(ctx antlr.ParserRuleContext) {}
 
-// EnterTag is called when production tag is entered.
-func (s *BaseASN1SchemaListener) EnterTag(ctx *TagContext) {}
+// EnterModule is called when production module is entered.
+func (s *BaseASN1SchemaListener) EnterModule(ctx *ModuleContext) {}
 
-// ExitTag is called when production tag is exited.
-func (s *BaseASN1SchemaListener) ExitTag(ctx *TagContext) {}
+// ExitModule is called when production module is exited.
+func (s *BaseASN1SchemaListener) ExitModule(ctx *ModuleContext) {}
+
+// EnterAssignment is called when production assignment is entered.
+func (s *BaseASN1SchemaListener) EnterAssignment(ctx *AssignmentContext) {}
+
+// ExitAssignment is called when production assignment is exited.
+func (s *BaseASN1SchemaListener) ExitAssignment(ctx *AssignmentContext) {}
 
 // EnterPrimitive is called when production primitive is entered.
 func (s *BaseASN1SchemaListener) EnterPrimitive(ctx *PrimitiveContext) {}
 
 // ExitPrimitive is called when production primitive is exited.
 func (s *BaseASN1SchemaListener) ExitPrimitive(ctx *PrimitiveContext) {}
+
+// EnterPrimitive_definition is called when production primitive_definition is entered.
+func (s *BaseASN1SchemaListener) EnterPrimitive_definition(ctx *Primitive_definitionContext) {}
+
+// ExitPrimitive_definition is called when production primitive_definition is exited.
+func (s *BaseASN1SchemaListener) ExitPrimitive_definition(ctx *Primitive_definitionContext) {}
+
+// EnterTag is called when production tag is entered.
+func (s *BaseASN1SchemaListener) EnterTag(ctx *TagContext) {}
+
+// ExitTag is called when production tag is exited.
+func (s *BaseASN1SchemaListener) ExitTag(ctx *TagContext) {}
 
 // EnterContext_flag is called when production context_flag is entered.
 func (s *BaseASN1SchemaListener) EnterContext_flag(ctx *Context_flagContext) {}
