@@ -8,7 +8,6 @@ import (
 	"github.com/antlr/antlr4/runtime/Go/antlr"
 	"github.com/dadrian/dasn1/schema/parser"
 	"github.com/dadrian/dasn1/util"
-	"github.com/sirupsen/logrus"
 )
 
 type testParseSuccessfulListener struct {
@@ -32,8 +31,29 @@ func newTestParseSuccessfulListener(t *testing.T, name string) *testParseSuccess
 	}
 }
 
+func testParseFile(t *testing.T, filepath string) {
+	b, err := ioutil.ReadFile(filepath)
+	if err != nil {
+		t.Fatalf("could not open file %s", filepath)
+	}
+	is := antlr.NewInputStream(string(b))
+	lexer := parser.NewASN1SchemaLexer(is)
+	lexer.RemoveErrorListeners()
+	stream := antlr.NewCommonTokenStream(lexer, antlr.TokenDefaultChannel)
+	p := parser.NewASN1SchemaParser(stream)
+	l := newTestParseSuccessfulListener(t, filepath)
+	p.RemoveErrorListeners()
+	p.AddErrorListener(l)
+	p.BuildParseTrees = true
+	tree := p.Module()
+	s := util.PrettyParseTree(tree, tree.GetParser(), tree.GetParser().GetTokenStream())
+	if l.failed {
+		t.Logf("\n%s", s)
+	}
+
+}
+
 func TestParseSequence(t *testing.T) {
-	logrus.SetLevel(logrus.DebugLevel)
 	testFiles, _ := ioutil.ReadDir(path.Join("testdata", "success"))
 	count := 0
 	for _, info := range testFiles {
@@ -45,24 +65,13 @@ func TestParseSequence(t *testing.T) {
 		name := info.Name()
 		t.Logf("parsing %s", name)
 		filepath := path.Join("testdata", "success", name)
-		b, err := ioutil.ReadFile(filepath)
-		if err != nil {
-			t.Fatalf("could not open file %s", filepath)
-		}
-		is := antlr.NewInputStream(string(b))
-		lexer := parser.NewASN1SchemaLexer(is)
-		stream := antlr.NewCommonTokenStream(lexer, antlr.TokenDefaultChannel)
-		p := parser.NewASN1SchemaParser(stream)
-		l := newTestParseSuccessfulListener(t, filepath)
-		p.AddErrorListener(l)
-		p.BuildParseTrees = true
-		tree := p.Module()
-		s := util.PrettyParseTree(tree, tree.GetParser(), tree.GetParser().GetTokenStream())
-		if l.failed {
-			t.Logf("\n%s", s)
-		}
+		testParseFile(t, filepath)
 	}
 	if count == 0 {
 		t.Error("no tests read")
 	}
+}
+
+func TestParseRFC5280(t *testing.T) {
+	testParseFile(t, path.Join("testdata", "rfc", "rfc5280.asn1"))
 }

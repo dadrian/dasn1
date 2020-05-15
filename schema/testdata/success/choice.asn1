@@ -1,0 +1,4 @@
+Time ::= CHOICE {
+     utcTime        UTCTime,
+     generalTime    GeneralizedTime
+}

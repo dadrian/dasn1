@@ -32,11 +32,23 @@ type ASN1SchemaListener interface {
 	// EnterDefault_value is called when entering the default_value production.
 	EnterDefault_value(c *Default_valueContext)
 
+	// EnterSize_constraint is called when entering the size_constraint production.
+	EnterSize_constraint(c *Size_constraintContext)
+
+	// EnterType_constraints is called when entering the type_constraints production.
+	EnterType_constraints(c *Type_constraintsContext)
+
 	// EnterType_definition is called when entering the type_definition production.
 	EnterType_definition(c *Type_definitionContext)
 
 	// EnterInteger_integer is called when entering the integer_integer production.
 	EnterInteger_integer(c *Integer_integerContext)
+
+	// EnterInteger_enum_value_list is called when entering the integer_enum_value_list production.
+	EnterInteger_enum_value_list(c *Integer_enum_value_listContext)
+
+	// EnterInteger_enum_value is called when entering the integer_enum_value production.
+	EnterInteger_enum_value(c *Integer_enum_valueContext)
 
 	// EnterOid is called when entering the oid production.
 	EnterOid(c *OidContext)
@@ -59,6 +71,9 @@ type ASN1SchemaListener interface {
 	// EnterSequence_of is called when entering the sequence_of production.
 	EnterSequence_of(c *Sequence_ofContext)
 
+	// EnterChoice is called when entering the choice production.
+	EnterChoice(c *ChoiceContext)
+
 	// EnterField_list is called when entering the field_list production.
 	EnterField_list(c *Field_listContext)
 
@@ -71,14 +86,14 @@ type ASN1SchemaListener interface {
 	// EnterType_name is called when entering the type_name production.
 	EnterType_name(c *Type_nameContext)
 
+	// EnterValue_identifier is called when entering the value_identifier production.
+	EnterValue_identifier(c *Value_identifierContext)
+
 	// EnterField_name is called when entering the field_name production.
 	EnterField_name(c *Field_nameContext)
 
 	// EnterCustom_type_name is called when entering the custom_type_name production.
 	EnterCustom_type_name(c *Custom_type_nameContext)
-
-	// EnterValue_identifier is called when entering the value_identifier production.
-	EnterValue_identifier(c *Value_identifierContext)
 
 	// ExitModule is called when exiting the module production.
 	ExitModule(c *ModuleContext)
@@ -104,11 +119,23 @@ type ASN1SchemaListener interface {
 	// ExitDefault_value is called when exiting the default_value production.
 	ExitDefault_value(c *Default_valueContext)
 
+	// ExitSize_constraint is called when exiting the size_constraint production.
+	ExitSize_constraint(c *Size_constraintContext)
+
+	// ExitType_constraints is called when exiting the type_constraints production.
+	ExitType_constraints(c *Type_constraintsContext)
+
 	// ExitType_definition is called when exiting the type_definition production.
 	ExitType_definition(c *Type_definitionContext)
 
 	// ExitInteger_integer is called when exiting the integer_integer production.
 	ExitInteger_integer(c *Integer_integerContext)
+
+	// ExitInteger_enum_value_list is called when exiting the integer_enum_value_list production.
+	ExitInteger_enum_value_list(c *Integer_enum_value_listContext)
+
+	// ExitInteger_enum_value is called when exiting the integer_enum_value production.
+	ExitInteger_enum_value(c *Integer_enum_valueContext)
 
 	// ExitOid is called when exiting the oid production.
 	ExitOid(c *OidContext)
@@ -131,6 +158,9 @@ type ASN1SchemaListener interface {
 	// ExitSequence_of is called when exiting the sequence_of production.
 	ExitSequence_of(c *Sequence_ofContext)
 
+	// ExitChoice is called when exiting the choice production.
+	ExitChoice(c *ChoiceContext)
+
 	// ExitField_list is called when exiting the field_list production.
 	ExitField_list(c *Field_listContext)
 
@@ -143,12 +173,12 @@ type ASN1SchemaListener interface {
 	// ExitType_name is called when exiting the type_name production.
 	ExitType_name(c *Type_nameContext)
 
+	// ExitValue_identifier is called when exiting the value_identifier production.
+	ExitValue_identifier(c *Value_identifierContext)
+
 	// ExitField_name is called when exiting the field_name production.
 	ExitField_name(c *Field_nameContext)
 
 	// ExitCustom_type_name is called when exiting the custom_type_name production.
 	ExitCustom_type_name(c *Custom_type_nameContext)
-
-	// ExitValue_identifier is called when exiting the value_identifier production.
-	ExitValue_identifier(c *Value_identifierContext)
 }

@@ -1,0 +1,6 @@
+X520name ::= CHOICE {
+      teletexString     TeletexString   (SIZE (1..ub-name)),
+      printableString   PrintableString (SIZE (1..ub-name)),
+      universalString   UniversalString (SIZE (1..ub-name)),
+      utf8String        UTF8String      (SIZE (1..ub-name)),
+      bmpString         BMPString       (SIZE (1..ub-name)) }

@@ -1,0 +1,8 @@
+Extension  ::=  SEQUENCE  {
+     extnID      OBJECT IDENTIFIER,
+     critical    BOOLEAN,
+     extnValue   OCTET STRING
+                 -- contains the DER encoding of an ASN.1 value
+                 -- corresponding to the extension type identified
+                 -- by extnID
+}

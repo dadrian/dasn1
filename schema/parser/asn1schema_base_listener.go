@@ -69,6 +69,18 @@ func (s *BaseASN1SchemaListener) EnterDefault_value(ctx *Default_valueContext) {
 // ExitDefault_value is called when production default_value is exited.
 func (s *BaseASN1SchemaListener) ExitDefault_value(ctx *Default_valueContext) {}
 
+// EnterSize_constraint is called when production size_constraint is entered.
+func (s *BaseASN1SchemaListener) EnterSize_constraint(ctx *Size_constraintContext) {}
+
+// ExitSize_constraint is called when production size_constraint is exited.
+func (s *BaseASN1SchemaListener) ExitSize_constraint(ctx *Size_constraintContext) {}
+
+// EnterType_constraints is called when production type_constraints is entered.
+func (s *BaseASN1SchemaListener) EnterType_constraints(ctx *Type_constraintsContext) {}
+
+// ExitType_constraints is called when production type_constraints is exited.
+func (s *BaseASN1SchemaListener) ExitType_constraints(ctx *Type_constraintsContext) {}
+
 // EnterType_definition is called when production type_definition is entered.
 func (s *BaseASN1SchemaListener) EnterType_definition(ctx *Type_definitionContext) {}
 
@@ -80,6 +92,18 @@ func (s *BaseASN1SchemaListener) EnterInteger_integer(ctx *Integer_integerContex
 
 // ExitInteger_integer is called when production integer_integer is exited.
 func (s *BaseASN1SchemaListener) ExitInteger_integer(ctx *Integer_integerContext) {}
+
+// EnterInteger_enum_value_list is called when production integer_enum_value_list is entered.
+func (s *BaseASN1SchemaListener) EnterInteger_enum_value_list(ctx *Integer_enum_value_listContext) {}
+
+// ExitInteger_enum_value_list is called when production integer_enum_value_list is exited.
+func (s *BaseASN1SchemaListener) ExitInteger_enum_value_list(ctx *Integer_enum_value_listContext) {}
+
+// EnterInteger_enum_value is called when production integer_enum_value is entered.
+func (s *BaseASN1SchemaListener) EnterInteger_enum_value(ctx *Integer_enum_valueContext) {}
+
+// ExitInteger_enum_value is called when production integer_enum_value is exited.
+func (s *BaseASN1SchemaListener) ExitInteger_enum_value(ctx *Integer_enum_valueContext) {}
 
 // EnterOid is called when production oid is entered.
 func (s *BaseASN1SchemaListener) EnterOid(ctx *OidContext) {}
@@ -123,6 +147,12 @@ func (s *BaseASN1SchemaListener) EnterSequence_of(ctx *Sequence_ofContext) {}
 // ExitSequence_of is called when production sequence_of is exited.
 func (s *BaseASN1SchemaListener) ExitSequence_of(ctx *Sequence_ofContext) {}
 
+// EnterChoice is called when production choice is entered.
+func (s *BaseASN1SchemaListener) EnterChoice(ctx *ChoiceContext) {}
+
+// ExitChoice is called when production choice is exited.
+func (s *BaseASN1SchemaListener) ExitChoice(ctx *ChoiceContext) {}
+
 // EnterField_list is called when production field_list is entered.
 func (s *BaseASN1SchemaListener) EnterField_list(ctx *Field_listContext) {}
 
@@ -147,6 +177,12 @@ func (s *BaseASN1SchemaListener) EnterType_name(ctx *Type_nameContext) {}
 // ExitType_name is called when production type_name is exited.
 func (s *BaseASN1SchemaListener) ExitType_name(ctx *Type_nameContext) {}
 
+// EnterValue_identifier is called when production value_identifier is entered.
+func (s *BaseASN1SchemaListener) EnterValue_identifier(ctx *Value_identifierContext) {}
+
+// ExitValue_identifier is called when production value_identifier is exited.
+func (s *BaseASN1SchemaListener) ExitValue_identifier(ctx *Value_identifierContext) {}
+
 // EnterField_name is called when production field_name is entered.
 func (s *BaseASN1SchemaListener) EnterField_name(ctx *Field_nameContext) {}
 
@@ -158,9 +194,3 @@ func (s *BaseASN1SchemaListener) EnterCustom_type_name(ctx *Custom_type_nameCont
 
 // ExitCustom_type_name is called when production custom_type_name is exited.
 func (s *BaseASN1SchemaListener) ExitCustom_type_name(ctx *Custom_type_nameContext) {}
-
-// EnterValue_identifier is called when production value_identifier is entered.
-func (s *BaseASN1SchemaListener) EnterValue_identifier(ctx *Value_identifierContext) {}
-
-// ExitValue_identifier is called when production value_identifier is exited.
-func (s *BaseASN1SchemaListener) ExitValue_identifier(ctx *Value_identifierContext) {}

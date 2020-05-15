@@ -1,0 +1,4 @@
+TBSCertificate  ::=  SEQUENCE  {
+    version         [0]  EXPLICIT Version DEFAULT v1,
+    sane                          BOOLEAN DEFAULT FALSE
+}
