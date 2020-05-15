@@ -1,0 +1,8 @@
+s ::= SEQUENCE {
+    seq SEQUENCE {
+        a typeName,
+        b typeName
+    },
+    seqOfPrimitive SEQUENCE OF INTEGER,
+    seqOfCustom SEQUENCE OF MyCustomType
+}

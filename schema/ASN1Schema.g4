@@ -13,6 +13,7 @@ INTEGER_LITERAL: 'INTEGER';
 IMPLICIT_LITERAL: 'IMPLICIT';
 OPTIONAL_LITERAL: 'OPTIONAL';
 DEFAULT_LITERAL: 'DEFAULT';
+OF_LITERAL: 'OF';
 BMPSTRING_LITERAL: 'BMPString';
 IA5STRING_LITERAL: 'IA5String';
 PRINTABLE_STRING_LITERAL: 'PrintableString';
@@ -26,10 +27,10 @@ WHITESPACE: SPACE+ -> skip;
 
 // Rules
 module: assignment+ EOF;
-assignment: type_name ASSIGN primitive primitive_definition;
+assignment: type_name ASSIGN primitive;
 
-primitive: SEQUENCE_LITERAL | OBJECT_IDENTIFIER_LITERAL | INTEGER_LITERAL | OCTET_STRING_LITERAL | BIT_STRING_LITERAL | string_literal;
-primitive_definition: sequence_definition;  // | interger_definition, ...
+primitive: sequence | integer_integer | oid | octet_string | bit_string | string_string;
+primitive_name: SEQUENCE_LITERAL | INTEGER_LITERAL | OBJECT_IDENTIFIER_LITERAL | OCTET_STRING_LITERAL | BIT_STRING_LITERAL | string_literal;
 
 tag: LBRACKET INTEGER RBRACKET;
 context_flag: IMPLICIT_LITERAL;
@@ -38,13 +39,23 @@ default_value: DEFAULT_LITERAL value_identifier;
 
 type_definition: context_flag? (primitive | type_name) encoding_flags?;
 
-sequence_definition: LBRACE field_list RBRACE;
+integer_integer: INTEGER_LITERAL;
+oid: OBJECT_IDENTIFIER_LITERAL;
+octet_string: OCTET_STRING_LITERAL;
+bit_string: BIT_STRING_LITERAL;
+string_string: string_literal;
+
+sequence: sequence_list | sequence_of;
+sequence_list: SEQUENCE_LITERAL LBRACE field_list RBRACE;
+sequence_of: SEQUENCE_LITERAL OF_LITERAL type_name;
 field_list: field_definition (COMMA field_list)?;
 field_definition: field_name tag? type_definition;
 
 string_literal: BMPSTRING_LITERAL | IA5STRING_LITERAL | PRINTABLE_STRING_LITERAL | UTF8_STRING_LITERAL;
 
+type_name: primitive_name | custom_type_name;
+
 field_name: WORD;
-type_name: WORD;
+custom_type_name: WORD;
 value_identifier: WORD;
 

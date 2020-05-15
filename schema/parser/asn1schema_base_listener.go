@@ -39,11 +39,11 @@ func (s *BaseASN1SchemaListener) EnterPrimitive(ctx *PrimitiveContext) {}
 // ExitPrimitive is called when production primitive is exited.
 func (s *BaseASN1SchemaListener) ExitPrimitive(ctx *PrimitiveContext) {}
 
-// EnterPrimitive_definition is called when production primitive_definition is entered.
-func (s *BaseASN1SchemaListener) EnterPrimitive_definition(ctx *Primitive_definitionContext) {}
+// EnterPrimitive_name is called when production primitive_name is entered.
+func (s *BaseASN1SchemaListener) EnterPrimitive_name(ctx *Primitive_nameContext) {}
 
-// ExitPrimitive_definition is called when production primitive_definition is exited.
-func (s *BaseASN1SchemaListener) ExitPrimitive_definition(ctx *Primitive_definitionContext) {}
+// ExitPrimitive_name is called when production primitive_name is exited.
+func (s *BaseASN1SchemaListener) ExitPrimitive_name(ctx *Primitive_nameContext) {}
 
 // EnterTag is called when production tag is entered.
 func (s *BaseASN1SchemaListener) EnterTag(ctx *TagContext) {}
@@ -75,11 +75,53 @@ func (s *BaseASN1SchemaListener) EnterType_definition(ctx *Type_definitionContex
 // ExitType_definition is called when production type_definition is exited.
 func (s *BaseASN1SchemaListener) ExitType_definition(ctx *Type_definitionContext) {}
 
-// EnterSequence_definition is called when production sequence_definition is entered.
-func (s *BaseASN1SchemaListener) EnterSequence_definition(ctx *Sequence_definitionContext) {}
+// EnterInteger_integer is called when production integer_integer is entered.
+func (s *BaseASN1SchemaListener) EnterInteger_integer(ctx *Integer_integerContext) {}
 
-// ExitSequence_definition is called when production sequence_definition is exited.
-func (s *BaseASN1SchemaListener) ExitSequence_definition(ctx *Sequence_definitionContext) {}
+// ExitInteger_integer is called when production integer_integer is exited.
+func (s *BaseASN1SchemaListener) ExitInteger_integer(ctx *Integer_integerContext) {}
+
+// EnterOid is called when production oid is entered.
+func (s *BaseASN1SchemaListener) EnterOid(ctx *OidContext) {}
+
+// ExitOid is called when production oid is exited.
+func (s *BaseASN1SchemaListener) ExitOid(ctx *OidContext) {}
+
+// EnterOctet_string is called when production octet_string is entered.
+func (s *BaseASN1SchemaListener) EnterOctet_string(ctx *Octet_stringContext) {}
+
+// ExitOctet_string is called when production octet_string is exited.
+func (s *BaseASN1SchemaListener) ExitOctet_string(ctx *Octet_stringContext) {}
+
+// EnterBit_string is called when production bit_string is entered.
+func (s *BaseASN1SchemaListener) EnterBit_string(ctx *Bit_stringContext) {}
+
+// ExitBit_string is called when production bit_string is exited.
+func (s *BaseASN1SchemaListener) ExitBit_string(ctx *Bit_stringContext) {}
+
+// EnterString_string is called when production string_string is entered.
+func (s *BaseASN1SchemaListener) EnterString_string(ctx *String_stringContext) {}
+
+// ExitString_string is called when production string_string is exited.
+func (s *BaseASN1SchemaListener) ExitString_string(ctx *String_stringContext) {}
+
+// EnterSequence is called when production sequence is entered.
+func (s *BaseASN1SchemaListener) EnterSequence(ctx *SequenceContext) {}
+
+// ExitSequence is called when production sequence is exited.
+func (s *BaseASN1SchemaListener) ExitSequence(ctx *SequenceContext) {}
+
+// EnterSequence_list is called when production sequence_list is entered.
+func (s *BaseASN1SchemaListener) EnterSequence_list(ctx *Sequence_listContext) {}
+
+// ExitSequence_list is called when production sequence_list is exited.
+func (s *BaseASN1SchemaListener) ExitSequence_list(ctx *Sequence_listContext) {}
+
+// EnterSequence_of is called when production sequence_of is entered.
+func (s *BaseASN1SchemaListener) EnterSequence_of(ctx *Sequence_ofContext) {}
+
+// ExitSequence_of is called when production sequence_of is exited.
+func (s *BaseASN1SchemaListener) ExitSequence_of(ctx *Sequence_ofContext) {}
 
 // EnterField_list is called when production field_list is entered.
 func (s *BaseASN1SchemaListener) EnterField_list(ctx *Field_listContext) {}
@@ -99,17 +141,23 @@ func (s *BaseASN1SchemaListener) EnterString_literal(ctx *String_literalContext)
 // ExitString_literal is called when production string_literal is exited.
 func (s *BaseASN1SchemaListener) ExitString_literal(ctx *String_literalContext) {}
 
+// EnterType_name is called when production type_name is entered.
+func (s *BaseASN1SchemaListener) EnterType_name(ctx *Type_nameContext) {}
+
+// ExitType_name is called when production type_name is exited.
+func (s *BaseASN1SchemaListener) ExitType_name(ctx *Type_nameContext) {}
+
 // EnterField_name is called when production field_name is entered.
 func (s *BaseASN1SchemaListener) EnterField_name(ctx *Field_nameContext) {}
 
 // ExitField_name is called when production field_name is exited.
 func (s *BaseASN1SchemaListener) ExitField_name(ctx *Field_nameContext) {}
 
-// EnterType_name is called when production type_name is entered.
-func (s *BaseASN1SchemaListener) EnterType_name(ctx *Type_nameContext) {}
+// EnterCustom_type_name is called when production custom_type_name is entered.
+func (s *BaseASN1SchemaListener) EnterCustom_type_name(ctx *Custom_type_nameContext) {}
 
-// ExitType_name is called when production type_name is exited.
-func (s *BaseASN1SchemaListener) ExitType_name(ctx *Type_nameContext) {}
+// ExitCustom_type_name is called when production custom_type_name is exited.
+func (s *BaseASN1SchemaListener) ExitCustom_type_name(ctx *Custom_type_nameContext) {}
 
 // EnterValue_identifier is called when production value_identifier is entered.
 func (s *BaseASN1SchemaListener) EnterValue_identifier(ctx *Value_identifierContext) {}

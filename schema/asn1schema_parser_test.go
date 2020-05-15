@@ -16,10 +16,13 @@ type testParseSuccessfulListener struct {
 
 	t    *testing.T
 	name string
+
+	failed bool
 }
 
 func (l *testParseSuccessfulListener) SyntaxError(recognizer antlr.Recognizer, offendingSymbol interface{}, line, column int, msg string, e antlr.RecognitionException) {
 	l.t.Errorf("%s: line %d:%d %s", l.name, line, column, msg)
+	l.failed = true
 }
 
 func newTestParseSuccessfulListener(t *testing.T, name string) *testParseSuccessfulListener {
@@ -50,11 +53,14 @@ func TestParseSequence(t *testing.T) {
 		lexer := parser.NewASN1SchemaLexer(is)
 		stream := antlr.NewCommonTokenStream(lexer, antlr.TokenDefaultChannel)
 		p := parser.NewASN1SchemaParser(stream)
-		p.AddErrorListener(newTestParseSuccessfulListener(t, filepath))
+		l := newTestParseSuccessfulListener(t, filepath)
+		p.AddErrorListener(l)
 		p.BuildParseTrees = true
 		tree := p.Module()
 		s := util.PrettyParseTree(tree, tree.GetParser(), tree.GetParser().GetTokenStream())
-		t.Logf("\n%s", s)
+		if l.failed {
+			t.Logf("\n%s", s)
+		}
 	}
 	if count == 0 {
 		t.Error("no tests read")
