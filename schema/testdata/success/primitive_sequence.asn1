@@ -1,0 +1,11 @@
+AllPrimitives ::= SEQUENCE {
+    bitstring BIT STRING,
+    boolean BOOLEAN,
+    integer INTEGER,
+    oid OBJECT IDENTIFIER,
+    octet OCTET STRING,
+    bmp BMPString,
+    ia5 IA5String,
+    printable PrintableString,
+    utf8 UTF8String
+}

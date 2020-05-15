@@ -1,4 +1,4 @@
-Certificate  ::=  SEQUENCEF  {
+Certificate  ::=  SEQUENCE  {
 	tbsCertificate       TBSCertificate,
 	signatureAlgorithm   AlgorithmIdentifier,
 	signatureValue       BIT STRING  }

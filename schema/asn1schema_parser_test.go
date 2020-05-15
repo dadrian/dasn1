@@ -2,18 +2,24 @@ package schema
 
 import (
 	"io/ioutil"
+	"path"
 	"testing"
 
 	"github.com/antlr/antlr4/runtime/Go/antlr"
 	"github.com/dadrian/dasn1/schema/parser"
+	"github.com/dadrian/dasn1/util"
 	"github.com/sirupsen/logrus"
 )
 
 type testParseSuccessfulListener struct {
-	*parser.BaseASN1SchemaListener
+	antlr.DefaultErrorListener
 
 	t    *testing.T
 	name string
+}
+
+func (l *testParseSuccessfulListener) SyntaxError(recognizer antlr.Recognizer, offendingSymbol interface{}, line, column int, msg string, e antlr.RecognitionException) {
+	l.t.Errorf("%s: line %d:%d %s", l.name, line, column, msg)
 }
 
 func newTestParseSuccessfulListener(t *testing.T, name string) *testParseSuccessfulListener {
@@ -23,13 +29,9 @@ func newTestParseSuccessfulListener(t *testing.T, name string) *testParseSuccess
 	}
 }
 
-func (s *testParseSuccessfulListener) VisitErrorNode(node antlr.ErrorNode) {
-	s.t.Errorf("failed to parse %s: %s", s.name, node.GetText())
-}
-
 func TestParseSequence(t *testing.T) {
 	logrus.SetLevel(logrus.DebugLevel)
-	testFiles, _ := ioutil.ReadDir("testdata")
+	testFiles, _ := ioutil.ReadDir(path.Join("testdata", "success"))
 	count := 0
 	for _, info := range testFiles {
 		if info.IsDir() {
@@ -37,16 +39,22 @@ func TestParseSequence(t *testing.T) {
 			continue
 		}
 		count++
-		filepath := info.Name()
-		t.Logf("parsing %s", filepath)
-		b, _ := ioutil.ReadFile(filepath)
+		name := info.Name()
+		t.Logf("parsing %s", name)
+		filepath := path.Join("testdata", "success", name)
+		b, err := ioutil.ReadFile(filepath)
+		if err != nil {
+			t.Fatalf("could not open file %s", filepath)
+		}
 		is := antlr.NewInputStream(string(b))
 		lexer := parser.NewASN1SchemaLexer(is)
 		stream := antlr.NewCommonTokenStream(lexer, antlr.TokenDefaultChannel)
 		p := parser.NewASN1SchemaParser(stream)
+		p.AddErrorListener(newTestParseSuccessfulListener(t, filepath))
 		p.BuildParseTrees = true
-		listener := newTestParseSuccessfulListener(t, filepath)
-		antlr.ParseTreeWalkerDefault.Walk(listener, p.Module())
+		tree := p.Module()
+		s := util.PrettyParseTree(tree, tree.GetParser(), tree.GetParser().GetTokenStream())
+		t.Logf("\n%s", s)
 	}
 	if count == 0 {
 		t.Error("no tests read")

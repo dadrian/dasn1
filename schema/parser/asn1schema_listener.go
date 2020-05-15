@@ -32,14 +32,8 @@ type ASN1SchemaListener interface {
 	// EnterDefault_value is called when entering the default_value production.
 	EnterDefault_value(c *Default_valueContext)
 
-	// EnterValue_identifier is called when entering the value_identifier production.
-	EnterValue_identifier(c *Value_identifierContext)
-
 	// EnterType_definition is called when entering the type_definition production.
 	EnterType_definition(c *Type_definitionContext)
-
-	// EnterType_name is called when entering the type_name production.
-	EnterType_name(c *Type_nameContext)
 
 	// EnterSequence_definition is called when entering the sequence_definition production.
 	EnterSequence_definition(c *Sequence_definitionContext)
@@ -50,8 +44,17 @@ type ASN1SchemaListener interface {
 	// EnterField_definition is called when entering the field_definition production.
 	EnterField_definition(c *Field_definitionContext)
 
+	// EnterString_literal is called when entering the string_literal production.
+	EnterString_literal(c *String_literalContext)
+
 	// EnterField_name is called when entering the field_name production.
 	EnterField_name(c *Field_nameContext)
+
+	// EnterType_name is called when entering the type_name production.
+	EnterType_name(c *Type_nameContext)
+
+	// EnterValue_identifier is called when entering the value_identifier production.
+	EnterValue_identifier(c *Value_identifierContext)
 
 	// ExitModule is called when exiting the module production.
 	ExitModule(c *ModuleContext)
@@ -77,14 +80,8 @@ type ASN1SchemaListener interface {
 	// ExitDefault_value is called when exiting the default_value production.
 	ExitDefault_value(c *Default_valueContext)
 
-	// ExitValue_identifier is called when exiting the value_identifier production.
-	ExitValue_identifier(c *Value_identifierContext)
-
 	// ExitType_definition is called when exiting the type_definition production.
 	ExitType_definition(c *Type_definitionContext)
-
-	// ExitType_name is called when exiting the type_name production.
-	ExitType_name(c *Type_nameContext)
 
 	// ExitSequence_definition is called when exiting the sequence_definition production.
 	ExitSequence_definition(c *Sequence_definitionContext)
@@ -95,6 +92,15 @@ type ASN1SchemaListener interface {
 	// ExitField_definition is called when exiting the field_definition production.
 	ExitField_definition(c *Field_definitionContext)
 
+	// ExitString_literal is called when exiting the string_literal production.
+	ExitString_literal(c *String_literalContext)
+
 	// ExitField_name is called when exiting the field_name production.
 	ExitField_name(c *Field_nameContext)
+
+	// ExitType_name is called when exiting the type_name production.
+	ExitType_name(c *Type_nameContext)
+
+	// ExitValue_identifier is called when exiting the value_identifier production.
+	ExitValue_identifier(c *Value_identifierContext)
 }

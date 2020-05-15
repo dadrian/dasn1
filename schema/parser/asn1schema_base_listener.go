@@ -69,23 +69,11 @@ func (s *BaseASN1SchemaListener) EnterDefault_value(ctx *Default_valueContext) {
 // ExitDefault_value is called when production default_value is exited.
 func (s *BaseASN1SchemaListener) ExitDefault_value(ctx *Default_valueContext) {}
 
-// EnterValue_identifier is called when production value_identifier is entered.
-func (s *BaseASN1SchemaListener) EnterValue_identifier(ctx *Value_identifierContext) {}
-
-// ExitValue_identifier is called when production value_identifier is exited.
-func (s *BaseASN1SchemaListener) ExitValue_identifier(ctx *Value_identifierContext) {}
-
 // EnterType_definition is called when production type_definition is entered.
 func (s *BaseASN1SchemaListener) EnterType_definition(ctx *Type_definitionContext) {}
 
 // ExitType_definition is called when production type_definition is exited.
 func (s *BaseASN1SchemaListener) ExitType_definition(ctx *Type_definitionContext) {}
-
-// EnterType_name is called when production type_name is entered.
-func (s *BaseASN1SchemaListener) EnterType_name(ctx *Type_nameContext) {}
-
-// ExitType_name is called when production type_name is exited.
-func (s *BaseASN1SchemaListener) ExitType_name(ctx *Type_nameContext) {}
 
 // EnterSequence_definition is called when production sequence_definition is entered.
 func (s *BaseASN1SchemaListener) EnterSequence_definition(ctx *Sequence_definitionContext) {}
@@ -105,8 +93,26 @@ func (s *BaseASN1SchemaListener) EnterField_definition(ctx *Field_definitionCont
 // ExitField_definition is called when production field_definition is exited.
 func (s *BaseASN1SchemaListener) ExitField_definition(ctx *Field_definitionContext) {}
 
+// EnterString_literal is called when production string_literal is entered.
+func (s *BaseASN1SchemaListener) EnterString_literal(ctx *String_literalContext) {}
+
+// ExitString_literal is called when production string_literal is exited.
+func (s *BaseASN1SchemaListener) ExitString_literal(ctx *String_literalContext) {}
+
 // EnterField_name is called when production field_name is entered.
 func (s *BaseASN1SchemaListener) EnterField_name(ctx *Field_nameContext) {}
 
 // ExitField_name is called when production field_name is exited.
 func (s *BaseASN1SchemaListener) ExitField_name(ctx *Field_nameContext) {}
+
+// EnterType_name is called when production type_name is entered.
+func (s *BaseASN1SchemaListener) EnterType_name(ctx *Type_nameContext) {}
+
+// ExitType_name is called when production type_name is exited.
+func (s *BaseASN1SchemaListener) ExitType_name(ctx *Type_nameContext) {}
+
+// EnterValue_identifier is called when production value_identifier is entered.
+func (s *BaseASN1SchemaListener) EnterValue_identifier(ctx *Value_identifierContext) {}
+
+// ExitValue_identifier is called when production value_identifier is exited.
+func (s *BaseASN1SchemaListener) ExitValue_identifier(ctx *Value_identifierContext) {}
