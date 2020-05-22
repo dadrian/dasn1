@@ -16,121 +16,147 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 34, 210,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 36, 258,
 	4, 2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7,
 	4, 8, 9, 8, 4, 9, 9, 9, 4, 10, 9, 10, 4, 11, 9, 11, 4, 12, 9, 12, 4, 13,
 	9, 13, 4, 14, 9, 14, 4, 15, 9, 15, 4, 16, 9, 16, 4, 17, 9, 17, 4, 18, 9,
 	18, 4, 19, 9, 19, 4, 20, 9, 20, 4, 21, 9, 21, 4, 22, 9, 22, 4, 23, 9, 23,
 	4, 24, 9, 24, 4, 25, 9, 25, 4, 26, 9, 26, 4, 27, 9, 27, 4, 28, 9, 28, 4,
-	29, 9, 29, 4, 30, 9, 30, 3, 2, 6, 2, 62, 10, 2, 13, 2, 14, 2, 63, 3, 2,
-	3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4,
-	5, 4, 79, 10, 4, 3, 5, 3, 5, 3, 5, 3, 5, 3, 5, 3, 5, 5, 5, 87, 10, 5, 3,
-	6, 3, 6, 3, 6, 3, 6, 3, 7, 3, 7, 3, 8, 3, 8, 5, 8, 97, 10, 8, 3, 9, 3,
-	9, 3, 9, 3, 10, 3, 10, 3, 10, 3, 10, 3, 10, 3, 10, 3, 10, 5, 10, 109, 10,
-	10, 3, 10, 3, 10, 3, 11, 3, 11, 3, 12, 5, 12, 116, 10, 12, 3, 12, 3, 12,
-	3, 12, 3, 12, 3, 12, 3, 12, 5, 12, 124, 10, 12, 5, 12, 126, 10, 12, 3,
-	12, 5, 12, 129, 10, 12, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 5, 13, 136,
-	10, 13, 3, 14, 3, 14, 3, 14, 5, 14, 141, 10, 14, 3, 15, 3, 15, 3, 15, 6,
-	15, 146, 10, 15, 13, 15, 14, 15, 147, 3, 15, 3, 15, 3, 16, 3, 16, 3, 17,
-	3, 17, 5, 17, 156, 10, 17, 3, 18, 3, 18, 5, 18, 160, 10, 18, 3, 19, 3,
-	19, 5, 19, 164, 10, 19, 3, 20, 3, 20, 5, 20, 168, 10, 20, 3, 21, 3, 21,
-	3, 21, 3, 21, 3, 21, 3, 22, 3, 22, 5, 22, 177, 10, 22, 3, 22, 3, 22, 3,
-	22, 3, 23, 3, 23, 3, 23, 3, 23, 3, 23, 3, 24, 3, 24, 3, 24, 5, 24, 190,
-	10, 24, 3, 25, 3, 25, 5, 25, 194, 10, 25, 3, 25, 3, 25, 3, 26, 3, 26, 3,
-	27, 3, 27, 5, 27, 202, 10, 27, 3, 28, 3, 28, 3, 29, 3, 29, 3, 30, 3, 30,
-	3, 30, 2, 2, 31, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30,
-	32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 2, 5, 3, 2, 14,
-	15, 3, 2, 22, 27, 3, 2, 32, 33, 2, 210, 2, 61, 3, 2, 2, 2, 4, 67, 3, 2,
-	2, 2, 6, 78, 3, 2, 2, 2, 8, 86, 3, 2, 2, 2, 10, 88, 3, 2, 2, 2, 12, 92,
-	3, 2, 2, 2, 14, 96, 3, 2, 2, 2, 16, 98, 3, 2, 2, 2, 18, 101, 3, 2, 2, 2,
-	20, 112, 3, 2, 2, 2, 22, 115, 3, 2, 2, 2, 24, 130, 3, 2, 2, 2, 26, 137,
-	3, 2, 2, 2, 28, 142, 3, 2, 2, 2, 30, 151, 3, 2, 2, 2, 32, 153, 3, 2, 2,
-	2, 34, 157, 3, 2, 2, 2, 36, 161, 3, 2, 2, 2, 38, 167, 3, 2, 2, 2, 40, 169,
-	3, 2, 2, 2, 42, 174, 3, 2, 2, 2, 44, 181, 3, 2, 2, 2, 46, 186, 3, 2, 2,
-	2, 48, 191, 3, 2, 2, 2, 50, 197, 3, 2, 2, 2, 52, 201, 3, 2, 2, 2, 54, 203,
-	3, 2, 2, 2, 56, 205, 3, 2, 2, 2, 58, 207, 3, 2, 2, 2, 60, 62, 5, 4, 3,
-	2, 61, 60, 3, 2, 2, 2, 62, 63, 3, 2, 2, 2, 63, 61, 3, 2, 2, 2, 63, 64,
-	3, 2, 2, 2, 64, 65, 3, 2, 2, 2, 65, 66, 7, 2, 2, 3, 66, 3, 3, 2, 2, 2,
-	67, 68, 5, 52, 27, 2, 68, 69, 7, 4, 2, 2, 69, 70, 5, 6, 4, 2, 70, 5, 3,
-	2, 2, 2, 71, 79, 5, 38, 20, 2, 72, 79, 5, 44, 23, 2, 73, 79, 5, 24, 13,
-	2, 74, 79, 5, 30, 16, 2, 75, 79, 5, 32, 17, 2, 76, 79, 5, 34, 18, 2, 77,
-	79, 5, 36, 19, 2, 78, 71, 3, 2, 2, 2, 78, 72, 3, 2, 2, 2, 78, 73, 3, 2,
-	2, 2, 78, 74, 3, 2, 2, 2, 78, 75, 3, 2, 2, 2, 78, 76, 3, 2, 2, 2, 78, 77,
-	3, 2, 2, 2, 79, 7, 3, 2, 2, 2, 80, 87, 7, 12, 2, 2, 81, 87, 7, 13, 2, 2,
-	82, 87, 7, 30, 2, 2, 83, 87, 7, 29, 2, 2, 84, 87, 7, 28, 2, 2, 85, 87,
-	5, 50, 26, 2, 86, 80, 3, 2, 2, 2, 86, 81, 3, 2, 2, 2, 86, 82, 3, 2, 2,
-	2, 86, 83, 3, 2, 2, 2, 86, 84, 3, 2, 2, 2, 86, 85, 3, 2, 2, 2, 87, 9, 3,
-	2, 2, 2, 88, 89, 7, 7, 2, 2, 89, 90, 7, 32, 2, 2, 90, 91, 7, 8, 2, 2, 91,
-	11, 3, 2, 2, 2, 92, 93, 9, 2, 2, 2, 93, 13, 3, 2, 2, 2, 94, 97, 7, 16,
-	2, 2, 95, 97, 5, 16, 9, 2, 96, 94, 3, 2, 2, 2, 96, 95, 3, 2, 2, 2, 97,
-	15, 3, 2, 2, 2, 98, 99, 7, 17, 2, 2, 99, 100, 5, 54, 28, 2, 100, 17, 3,
-	2, 2, 2, 101, 102, 7, 20, 2, 2, 102, 103, 7, 9, 2, 2, 103, 104, 7, 32,
-	2, 2, 104, 108, 7, 31, 2, 2, 105, 109, 7, 32, 2, 2, 106, 109, 5, 56, 29,
-	2, 107, 109, 7, 21, 2, 2, 108, 105, 3, 2, 2, 2, 108, 106, 3, 2, 2, 2, 108,
-	107, 3, 2, 2, 2, 109, 110, 3, 2, 2, 2, 110, 111, 7, 10, 2, 2, 111, 19,
-	3, 2, 2, 2, 112, 113, 5, 18, 10, 2, 113, 21, 3, 2, 2, 2, 114, 116, 5, 12,
-	7, 2, 115, 114, 3, 2, 2, 2, 115, 116, 3, 2, 2, 2, 116, 125, 3, 2, 2, 2,
-	117, 126, 5, 6, 4, 2, 118, 123, 5, 52, 27, 2, 119, 120, 7, 9, 2, 2, 120,
-	121, 5, 20, 11, 2, 121, 122, 7, 10, 2, 2, 122, 124, 3, 2, 2, 2, 123, 119,
-	3, 2, 2, 2, 123, 124, 3, 2, 2, 2, 124, 126, 3, 2, 2, 2, 125, 117, 3, 2,
-	2, 2, 125, 118, 3, 2, 2, 2, 126, 128, 3, 2, 2, 2, 127, 129, 5, 14, 8, 2,
-	128, 127, 3, 2, 2, 2, 128, 129, 3, 2, 2, 2, 129, 23, 3, 2, 2, 2, 130, 135,
-	7, 13, 2, 2, 131, 132, 7, 5, 2, 2, 132, 133, 5, 26, 14, 2, 133, 134, 7,
-	6, 2, 2, 134, 136, 3, 2, 2, 2, 135, 131, 3, 2, 2, 2, 135, 136, 3, 2, 2,
-	2, 136, 25, 3, 2, 2, 2, 137, 140, 5, 28, 15, 2, 138, 139, 7, 11, 2, 2,
-	139, 141, 5, 26, 14, 2, 140, 138, 3, 2, 2, 2, 140, 141, 3, 2, 2, 2, 141,
-	27, 3, 2, 2, 2, 142, 143, 5, 56, 29, 2, 143, 145, 7, 9, 2, 2, 144, 146,
-	7, 32, 2, 2, 145, 144, 3, 2, 2, 2, 146, 147, 3, 2, 2, 2, 147, 145, 3, 2,
-	2, 2, 147, 148, 3, 2, 2, 2, 148, 149, 3, 2, 2, 2, 149, 150, 7, 10, 2, 2,
-	150, 29, 3, 2, 2, 2, 151, 152, 7, 30, 2, 2, 152, 31, 3, 2, 2, 2, 153, 155,
-	7, 29, 2, 2, 154, 156, 5, 20, 11, 2, 155, 154, 3, 2, 2, 2, 155, 156, 3,
-	2, 2, 2, 156, 33, 3, 2, 2, 2, 157, 159, 7, 28, 2, 2, 158, 160, 5, 20, 11,
-	2, 159, 158, 3, 2, 2, 2, 159, 160, 3, 2, 2, 2, 160, 35, 3, 2, 2, 2, 161,
-	163, 5, 50, 26, 2, 162, 164, 5, 20, 11, 2, 163, 162, 3, 2, 2, 2, 163, 164,
-	3, 2, 2, 2, 164, 37, 3, 2, 2, 2, 165, 168, 5, 40, 21, 2, 166, 168, 5, 42,
-	22, 2, 167, 165, 3, 2, 2, 2, 167, 166, 3, 2, 2, 2, 168, 39, 3, 2, 2, 2,
-	169, 170, 7, 12, 2, 2, 170, 171, 7, 5, 2, 2, 171, 172, 5, 46, 24, 2, 172,
-	173, 7, 6, 2, 2, 173, 41, 3, 2, 2, 2, 174, 176, 7, 12, 2, 2, 175, 177,
-	5, 18, 10, 2, 176, 175, 3, 2, 2, 2, 176, 177, 3, 2, 2, 2, 177, 178, 3,
-	2, 2, 2, 178, 179, 7, 18, 2, 2, 179, 180, 5, 52, 27, 2, 180, 43, 3, 2,
-	2, 2, 181, 182, 7, 19, 2, 2, 182, 183, 7, 5, 2, 2, 183, 184, 5, 46, 24,
-	2, 184, 185, 7, 6, 2, 2, 185, 45, 3, 2, 2, 2, 186, 189, 5, 48, 25, 2, 187,
-	188, 7, 11, 2, 2, 188, 190, 5, 46, 24, 2, 189, 187, 3, 2, 2, 2, 189, 190,
-	3, 2, 2, 2, 190, 47, 3, 2, 2, 2, 191, 193, 5, 56, 29, 2, 192, 194, 5, 10,
-	6, 2, 193, 192, 3, 2, 2, 2, 193, 194, 3, 2, 2, 2, 194, 195, 3, 2, 2, 2,
-	195, 196, 5, 22, 12, 2, 196, 49, 3, 2, 2, 2, 197, 198, 9, 3, 2, 2, 198,
-	51, 3, 2, 2, 2, 199, 202, 5, 8, 5, 2, 200, 202, 5, 58, 30, 2, 201, 199,
-	3, 2, 2, 2, 201, 200, 3, 2, 2, 2, 202, 53, 3, 2, 2, 2, 203, 204, 9, 4,
-	2, 2, 204, 55, 3, 2, 2, 2, 205, 206, 7, 33, 2, 2, 206, 57, 3, 2, 2, 2,
-	207, 208, 7, 33, 2, 2, 208, 59, 3, 2, 2, 2, 22, 63, 78, 86, 96, 108, 115,
-	123, 125, 128, 135, 140, 147, 155, 159, 163, 167, 176, 189, 193, 201,
+	29, 9, 29, 4, 30, 9, 30, 4, 31, 9, 31, 4, 32, 9, 32, 4, 33, 9, 33, 4, 34,
+	9, 34, 4, 35, 9, 35, 4, 36, 9, 36, 3, 2, 6, 2, 74, 10, 2, 13, 2, 14, 2,
+	75, 3, 2, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 5, 3, 85, 10, 3, 3, 4, 3,
+	4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 5, 4, 95, 10, 4, 3, 5, 3, 5, 3,
+	5, 3, 5, 3, 5, 3, 5, 3, 5, 5, 5, 104, 10, 5, 3, 6, 3, 6, 3, 6, 3, 6, 3,
+	7, 3, 7, 3, 8, 3, 8, 5, 8, 114, 10, 8, 3, 9, 3, 9, 3, 9, 3, 10, 3, 10,
+	3, 10, 3, 10, 3, 10, 3, 10, 3, 10, 5, 10, 126, 10, 10, 3, 10, 3, 10, 3,
+	11, 3, 11, 3, 12, 5, 12, 133, 10, 12, 3, 12, 3, 12, 3, 12, 3, 12, 3, 12,
+	3, 12, 5, 12, 141, 10, 12, 5, 12, 143, 10, 12, 3, 12, 5, 12, 146, 10, 12,
+	3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 5, 13, 153, 10, 13, 3, 14, 3, 14, 6,
+	14, 157, 10, 14, 13, 14, 14, 14, 158, 3, 14, 3, 14, 3, 15, 3, 15, 3, 15,
+	5, 15, 166, 10, 15, 3, 16, 3, 16, 3, 16, 3, 17, 3, 17, 5, 17, 173, 10,
+	17, 3, 17, 3, 17, 6, 17, 177, 10, 17, 13, 17, 14, 17, 178, 5, 17, 181,
+	10, 17, 3, 18, 3, 18, 5, 18, 185, 10, 18, 3, 19, 3, 19, 3, 20, 3, 20, 3,
+	20, 3, 20, 3, 20, 3, 20, 3, 20, 3, 21, 3, 21, 5, 21, 198, 10, 21, 3, 22,
+	3, 22, 5, 22, 202, 10, 22, 3, 23, 3, 23, 5, 23, 206, 10, 23, 3, 24, 3,
+	24, 5, 24, 210, 10, 24, 3, 25, 3, 25, 3, 25, 3, 25, 3, 25, 3, 26, 3, 26,
+	5, 26, 219, 10, 26, 3, 26, 3, 26, 3, 26, 3, 27, 3, 27, 3, 27, 3, 27, 3,
+	27, 3, 28, 3, 28, 3, 28, 3, 28, 3, 29, 3, 29, 3, 29, 5, 29, 236, 10, 29,
+	3, 30, 3, 30, 5, 30, 240, 10, 30, 3, 30, 3, 30, 3, 31, 3, 31, 3, 32, 3,
+	32, 5, 32, 248, 10, 32, 3, 33, 3, 33, 3, 34, 3, 34, 3, 35, 3, 35, 3, 36,
+	3, 36, 3, 36, 2, 2, 37, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26,
+	28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62,
+	64, 66, 68, 70, 2, 5, 3, 2, 14, 15, 3, 2, 24, 29, 3, 2, 34, 35, 2, 259,
+	2, 73, 3, 2, 2, 2, 4, 84, 3, 2, 2, 2, 6, 94, 3, 2, 2, 2, 8, 103, 3, 2,
+	2, 2, 10, 105, 3, 2, 2, 2, 12, 109, 3, 2, 2, 2, 14, 113, 3, 2, 2, 2, 16,
+	115, 3, 2, 2, 2, 18, 118, 3, 2, 2, 2, 20, 129, 3, 2, 2, 2, 22, 132, 3,
+	2, 2, 2, 24, 147, 3, 2, 2, 2, 26, 154, 3, 2, 2, 2, 28, 162, 3, 2, 2, 2,
+	30, 167, 3, 2, 2, 2, 32, 180, 3, 2, 2, 2, 34, 184, 3, 2, 2, 2, 36, 186,
+	3, 2, 2, 2, 38, 188, 3, 2, 2, 2, 40, 195, 3, 2, 2, 2, 42, 199, 3, 2, 2,
+	2, 44, 203, 3, 2, 2, 2, 46, 209, 3, 2, 2, 2, 48, 211, 3, 2, 2, 2, 50, 216,
+	3, 2, 2, 2, 52, 223, 3, 2, 2, 2, 54, 228, 3, 2, 2, 2, 56, 232, 3, 2, 2,
+	2, 58, 237, 3, 2, 2, 2, 60, 243, 3, 2, 2, 2, 62, 247, 3, 2, 2, 2, 64, 249,
+	3, 2, 2, 2, 66, 251, 3, 2, 2, 2, 68, 253, 3, 2, 2, 2, 70, 255, 3, 2, 2,
+	2, 72, 74, 5, 4, 3, 2, 73, 72, 3, 2, 2, 2, 74, 75, 3, 2, 2, 2, 75, 73,
+	3, 2, 2, 2, 75, 76, 3, 2, 2, 2, 76, 77, 3, 2, 2, 2, 77, 78, 7, 2, 2, 3,
+	78, 3, 3, 2, 2, 2, 79, 80, 5, 62, 32, 2, 80, 81, 7, 4, 2, 2, 81, 82, 5,
+	6, 4, 2, 82, 85, 3, 2, 2, 2, 83, 85, 5, 38, 20, 2, 84, 79, 3, 2, 2, 2,
+	84, 83, 3, 2, 2, 2, 85, 5, 3, 2, 2, 2, 86, 95, 5, 46, 24, 2, 87, 95, 5,
+	52, 27, 2, 88, 95, 5, 24, 13, 2, 89, 95, 5, 36, 19, 2, 90, 95, 5, 40, 21,
+	2, 91, 95, 5, 42, 22, 2, 92, 95, 5, 44, 23, 2, 93, 95, 5, 54, 28, 2, 94,
+	86, 3, 2, 2, 2, 94, 87, 3, 2, 2, 2, 94, 88, 3, 2, 2, 2, 94, 89, 3, 2, 2,
+	2, 94, 90, 3, 2, 2, 2, 94, 91, 3, 2, 2, 2, 94, 92, 3, 2, 2, 2, 94, 93,
+	3, 2, 2, 2, 95, 7, 3, 2, 2, 2, 96, 104, 7, 12, 2, 2, 97, 104, 7, 13, 2,
+	2, 98, 104, 7, 32, 2, 2, 99, 104, 7, 31, 2, 2, 100, 104, 7, 30, 2, 2, 101,
+	104, 5, 60, 31, 2, 102, 104, 7, 19, 2, 2, 103, 96, 3, 2, 2, 2, 103, 97,
+	3, 2, 2, 2, 103, 98, 3, 2, 2, 2, 103, 99, 3, 2, 2, 2, 103, 100, 3, 2, 2,
+	2, 103, 101, 3, 2, 2, 2, 103, 102, 3, 2, 2, 2, 104, 9, 3, 2, 2, 2, 105,
+	106, 7, 7, 2, 2, 106, 107, 7, 34, 2, 2, 107, 108, 7, 8, 2, 2, 108, 11,
+	3, 2, 2, 2, 109, 110, 9, 2, 2, 2, 110, 13, 3, 2, 2, 2, 111, 114, 7, 16,
+	2, 2, 112, 114, 5, 16, 9, 2, 113, 111, 3, 2, 2, 2, 113, 112, 3, 2, 2, 2,
+	114, 15, 3, 2, 2, 2, 115, 116, 7, 17, 2, 2, 116, 117, 5, 66, 34, 2, 117,
+	17, 3, 2, 2, 2, 118, 119, 7, 22, 2, 2, 119, 120, 7, 9, 2, 2, 120, 121,
+	7, 34, 2, 2, 121, 125, 7, 33, 2, 2, 122, 126, 7, 34, 2, 2, 123, 126, 5,
+	68, 35, 2, 124, 126, 7, 23, 2, 2, 125, 122, 3, 2, 2, 2, 125, 123, 3, 2,
+	2, 2, 125, 124, 3, 2, 2, 2, 126, 127, 3, 2, 2, 2, 127, 128, 7, 10, 2, 2,
+	128, 19, 3, 2, 2, 2, 129, 130, 5, 18, 10, 2, 130, 21, 3, 2, 2, 2, 131,
+	133, 5, 12, 7, 2, 132, 131, 3, 2, 2, 2, 132, 133, 3, 2, 2, 2, 133, 142,
+	3, 2, 2, 2, 134, 143, 5, 6, 4, 2, 135, 140, 5, 62, 32, 2, 136, 137, 7,
+	9, 2, 2, 137, 138, 5, 20, 11, 2, 138, 139, 7, 10, 2, 2, 139, 141, 3, 2,
+	2, 2, 140, 136, 3, 2, 2, 2, 140, 141, 3, 2, 2, 2, 141, 143, 3, 2, 2, 2,
+	142, 134, 3, 2, 2, 2, 142, 135, 3, 2, 2, 2, 143, 145, 3, 2, 2, 2, 144,
+	146, 5, 14, 8, 2, 145, 144, 3, 2, 2, 2, 145, 146, 3, 2, 2, 2, 146, 23,
+	3, 2, 2, 2, 147, 152, 7, 13, 2, 2, 148, 149, 7, 5, 2, 2, 149, 150, 5, 28,
+	15, 2, 150, 151, 7, 6, 2, 2, 151, 153, 3, 2, 2, 2, 152, 148, 3, 2, 2, 2,
+	152, 153, 3, 2, 2, 2, 153, 25, 3, 2, 2, 2, 154, 156, 7, 9, 2, 2, 155, 157,
+	7, 34, 2, 2, 156, 155, 3, 2, 2, 2, 157, 158, 3, 2, 2, 2, 158, 156, 3, 2,
+	2, 2, 158, 159, 3, 2, 2, 2, 159, 160, 3, 2, 2, 2, 160, 161, 7, 10, 2, 2,
+	161, 27, 3, 2, 2, 2, 162, 165, 5, 30, 16, 2, 163, 164, 7, 11, 2, 2, 164,
+	166, 5, 28, 15, 2, 165, 163, 3, 2, 2, 2, 165, 166, 3, 2, 2, 2, 166, 29,
+	3, 2, 2, 2, 167, 168, 5, 68, 35, 2, 168, 169, 5, 26, 14, 2, 169, 31, 3,
+	2, 2, 2, 170, 172, 5, 34, 18, 2, 171, 173, 5, 32, 17, 2, 172, 171, 3, 2,
+	2, 2, 172, 173, 3, 2, 2, 2, 173, 181, 3, 2, 2, 2, 174, 176, 5, 34, 18,
+	2, 175, 177, 7, 34, 2, 2, 176, 175, 3, 2, 2, 2, 177, 178, 3, 2, 2, 2, 178,
+	176, 3, 2, 2, 2, 178, 179, 3, 2, 2, 2, 179, 181, 3, 2, 2, 2, 180, 170,
+	3, 2, 2, 2, 180, 174, 3, 2, 2, 2, 181, 33, 3, 2, 2, 2, 182, 185, 5, 64,
+	33, 2, 183, 185, 5, 30, 16, 2, 184, 182, 3, 2, 2, 2, 184, 183, 3, 2, 2,
+	2, 185, 35, 3, 2, 2, 2, 186, 187, 7, 32, 2, 2, 187, 37, 3, 2, 2, 2, 188,
+	189, 5, 68, 35, 2, 189, 190, 7, 32, 2, 2, 190, 191, 7, 4, 2, 2, 191, 192,
+	7, 5, 2, 2, 192, 193, 5, 32, 17, 2, 193, 194, 7, 6, 2, 2, 194, 39, 3, 2,
+	2, 2, 195, 197, 7, 31, 2, 2, 196, 198, 5, 20, 11, 2, 197, 196, 3, 2, 2,
+	2, 197, 198, 3, 2, 2, 2, 198, 41, 3, 2, 2, 2, 199, 201, 7, 30, 2, 2, 200,
+	202, 5, 20, 11, 2, 201, 200, 3, 2, 2, 2, 201, 202, 3, 2, 2, 2, 202, 43,
+	3, 2, 2, 2, 203, 205, 5, 60, 31, 2, 204, 206, 5, 20, 11, 2, 205, 204, 3,
+	2, 2, 2, 205, 206, 3, 2, 2, 2, 206, 45, 3, 2, 2, 2, 207, 210, 5, 48, 25,
+	2, 208, 210, 5, 50, 26, 2, 209, 207, 3, 2, 2, 2, 209, 208, 3, 2, 2, 2,
+	210, 47, 3, 2, 2, 2, 211, 212, 7, 12, 2, 2, 212, 213, 7, 5, 2, 2, 213,
+	214, 5, 56, 29, 2, 214, 215, 7, 6, 2, 2, 215, 49, 3, 2, 2, 2, 216, 218,
+	7, 12, 2, 2, 217, 219, 5, 18, 10, 2, 218, 217, 3, 2, 2, 2, 218, 219, 3,
+	2, 2, 2, 219, 220, 3, 2, 2, 2, 220, 221, 7, 20, 2, 2, 221, 222, 5, 62,
+	32, 2, 222, 51, 3, 2, 2, 2, 223, 224, 7, 21, 2, 2, 224, 225, 7, 5, 2, 2,
+	225, 226, 5, 56, 29, 2, 226, 227, 7, 6, 2, 2, 227, 53, 3, 2, 2, 2, 228,
+	229, 7, 19, 2, 2, 229, 230, 7, 18, 2, 2, 230, 231, 5, 68, 35, 2, 231, 55,
+	3, 2, 2, 2, 232, 235, 5, 58, 30, 2, 233, 234, 7, 11, 2, 2, 234, 236, 5,
+	56, 29, 2, 235, 233, 3, 2, 2, 2, 235, 236, 3, 2, 2, 2, 236, 57, 3, 2, 2,
+	2, 237, 239, 5, 68, 35, 2, 238, 240, 5, 10, 6, 2, 239, 238, 3, 2, 2, 2,
+	239, 240, 3, 2, 2, 2, 240, 241, 3, 2, 2, 2, 241, 242, 5, 22, 12, 2, 242,
+	59, 3, 2, 2, 2, 243, 244, 9, 3, 2, 2, 244, 61, 3, 2, 2, 2, 245, 248, 5,
+	8, 5, 2, 246, 248, 5, 70, 36, 2, 247, 245, 3, 2, 2, 2, 247, 246, 3, 2,
+	2, 2, 248, 63, 3, 2, 2, 2, 249, 250, 5, 68, 35, 2, 250, 65, 3, 2, 2, 2,
+	251, 252, 9, 4, 2, 2, 252, 67, 3, 2, 2, 2, 253, 254, 7, 35, 2, 2, 254,
+	69, 3, 2, 2, 2, 255, 256, 7, 35, 2, 2, 256, 71, 3, 2, 2, 2, 27, 75, 84,
+	94, 103, 113, 125, 132, 140, 142, 145, 152, 158, 165, 172, 178, 180, 184,
+	197, 201, 205, 209, 218, 235, 239, 247,
 }
 var deserializer = antlr.NewATNDeserializer(nil)
 var deserializedATN = deserializer.DeserializeFromUInt16(parserATN)
 
 var literalNames = []string{
 	"", "", "'::='", "'{'", "'}'", "'['", "']'", "'('", "')'", "','", "'SEQUENCE'",
-	"'INTEGER'", "'IMPLICIT'", "'EXPLICIT'", "'OPTIONAL'", "'DEFAULT'", "'OF'",
-	"'CHOICE'", "'SIZE'", "'MAX'", "'BMPString'", "'IA5String'", "'PrintableString'",
-	"'TeletexString'", "'UniversalString'", "'UTF8String'", "", "", "", "'..'",
+	"'INTEGER'", "'IMPLICIT'", "'EXPLICIT'", "'OPTIONAL'", "'DEFAULT'", "",
+	"'ANY'", "'OF'", "'CHOICE'", "'SIZE'", "'MAX'", "'BMPString'", "'IA5String'",
+	"'PrintableString'", "'TeletexString'", "'UniversalString'", "'UTF8String'",
+	"", "", "", "'..'",
 }
 var symbolicNames = []string{
 	"", "COMMENT", "ASSIGN", "LBRACE", "RBRACE", "LBRACKET", "RBRACKET", "LPAREN",
 	"RPAREN", "COMMA", "SEQUENCE_LITERAL", "INTEGER_LITERAL", "IMPLICIT_LITERAL",
-	"EXPLICIT_LITERAL", "OPTIONAL_LITERAL", "DEFAULT_LITERAL", "OF_LITERAL",
-	"CHOICE_LITERAL", "SIZE_LITERAL", "MAX", "BMPSTRING_LITERAL", "IA5STRING_LITERAL",
-	"PRINTABLE_STRING_LITERAL", "TELETEX_STRING_LITERAL", "UNIVERSAL_STRING_LITERAL",
-	"UTF8_STRING_LITERAL", "BIT_STRING_LITERAL", "OCTET_STRING_LITERAL", "OBJECT_IDENTIFIER_LITERAL",
-	"DOTDOT", "INTEGER", "WORD", "WHITESPACE",
+	"EXPLICIT_LITERAL", "OPTIONAL_LITERAL", "DEFAULT_LITERAL", "DEFINED_BY_LITERAL",
+	"ANY_LITERAL", "OF_LITERAL", "CHOICE_LITERAL", "SIZE_LITERAL", "MAX", "BMPSTRING_LITERAL",
+	"IA5STRING_LITERAL", "PRINTABLE_STRING_LITERAL", "TELETEX_STRING_LITERAL",
+	"UNIVERSAL_STRING_LITERAL", "UTF8_STRING_LITERAL", "BIT_STRING_LITERAL",
+	"OCTET_STRING_LITERAL", "OBJECT_IDENTIFIER_LITERAL", "DOTDOT", "INTEGER",
+	"WORD", "WHITESPACE",
 }
 
 var ruleNames = []string{
 	"module", "assignment", "primitive", "primitive_name", "tag", "context_flag",
 	"encoding_flags", "default_value", "size_constraint", "type_constraints",
-	"type_definition", "integer_integer", "integer_enum_value_list", "integer_enum_value",
-	"oid", "octet_string", "bit_string", "string_string", "sequence", "sequence_list",
-	"sequence_of", "choice", "field_list", "field_definition", "string_literal",
-	"type_name", "value_identifier", "field_name", "custom_type_name",
+	"type_definition", "integer_integer", "integer_value", "integer_enum_value_list",
+	"integer_enum_value", "integer_oid_value_list", "integer_oid_value", "oid",
+	"oid_assignment", "octet_string", "bit_string", "string_string", "sequence",
+	"sequence_list", "sequence_of", "choice", "any", "field_list", "field_definition",
+	"string_literal", "type_name", "integer_oid_reference", "value_identifier",
+	"field_name", "custom_type_name",
 }
 var decisionToDFA = make([]*antlr.DFA, len(deserializedATN.DecisionToState))
 
@@ -176,23 +202,25 @@ const (
 	ASN1SchemaParserEXPLICIT_LITERAL          = 13
 	ASN1SchemaParserOPTIONAL_LITERAL          = 14
 	ASN1SchemaParserDEFAULT_LITERAL           = 15
-	ASN1SchemaParserOF_LITERAL                = 16
-	ASN1SchemaParserCHOICE_LITERAL            = 17
-	ASN1SchemaParserSIZE_LITERAL              = 18
-	ASN1SchemaParserMAX                       = 19
-	ASN1SchemaParserBMPSTRING_LITERAL         = 20
-	ASN1SchemaParserIA5STRING_LITERAL         = 21
-	ASN1SchemaParserPRINTABLE_STRING_LITERAL  = 22
-	ASN1SchemaParserTELETEX_STRING_LITERAL    = 23
-	ASN1SchemaParserUNIVERSAL_STRING_LITERAL  = 24
-	ASN1SchemaParserUTF8_STRING_LITERAL       = 25
-	ASN1SchemaParserBIT_STRING_LITERAL        = 26
-	ASN1SchemaParserOCTET_STRING_LITERAL      = 27
-	ASN1SchemaParserOBJECT_IDENTIFIER_LITERAL = 28
-	ASN1SchemaParserDOTDOT                    = 29
-	ASN1SchemaParserINTEGER                   = 30
-	ASN1SchemaParserWORD                      = 31
-	ASN1SchemaParserWHITESPACE                = 32
+	ASN1SchemaParserDEFINED_BY_LITERAL        = 16
+	ASN1SchemaParserANY_LITERAL               = 17
+	ASN1SchemaParserOF_LITERAL                = 18
+	ASN1SchemaParserCHOICE_LITERAL            = 19
+	ASN1SchemaParserSIZE_LITERAL              = 20
+	ASN1SchemaParserMAX                       = 21
+	ASN1SchemaParserBMPSTRING_LITERAL         = 22
+	ASN1SchemaParserIA5STRING_LITERAL         = 23
+	ASN1SchemaParserPRINTABLE_STRING_LITERAL  = 24
+	ASN1SchemaParserTELETEX_STRING_LITERAL    = 25
+	ASN1SchemaParserUNIVERSAL_STRING_LITERAL  = 26
+	ASN1SchemaParserUTF8_STRING_LITERAL       = 27
+	ASN1SchemaParserBIT_STRING_LITERAL        = 28
+	ASN1SchemaParserOCTET_STRING_LITERAL      = 29
+	ASN1SchemaParserOBJECT_IDENTIFIER_LITERAL = 30
+	ASN1SchemaParserDOTDOT                    = 31
+	ASN1SchemaParserINTEGER                   = 32
+	ASN1SchemaParserWORD                      = 33
+	ASN1SchemaParserWHITESPACE                = 34
 )
 
 // ASN1SchemaParser rules.
@@ -209,23 +237,29 @@ const (
 	ASN1SchemaParserRULE_type_constraints        = 9
 	ASN1SchemaParserRULE_type_definition         = 10
 	ASN1SchemaParserRULE_integer_integer         = 11
-	ASN1SchemaParserRULE_integer_enum_value_list = 12
-	ASN1SchemaParserRULE_integer_enum_value      = 13
-	ASN1SchemaParserRULE_oid                     = 14
-	ASN1SchemaParserRULE_octet_string            = 15
-	ASN1SchemaParserRULE_bit_string              = 16
-	ASN1SchemaParserRULE_string_string           = 17
-	ASN1SchemaParserRULE_sequence                = 18
-	ASN1SchemaParserRULE_sequence_list           = 19
-	ASN1SchemaParserRULE_sequence_of             = 20
-	ASN1SchemaParserRULE_choice                  = 21
-	ASN1SchemaParserRULE_field_list              = 22
-	ASN1SchemaParserRULE_field_definition        = 23
-	ASN1SchemaParserRULE_string_literal          = 24
-	ASN1SchemaParserRULE_type_name               = 25
-	ASN1SchemaParserRULE_value_identifier        = 26
-	ASN1SchemaParserRULE_field_name              = 27
-	ASN1SchemaParserRULE_custom_type_name        = 28
+	ASN1SchemaParserRULE_integer_value           = 12
+	ASN1SchemaParserRULE_integer_enum_value_list = 13
+	ASN1SchemaParserRULE_integer_enum_value      = 14
+	ASN1SchemaParserRULE_integer_oid_value_list  = 15
+	ASN1SchemaParserRULE_integer_oid_value       = 16
+	ASN1SchemaParserRULE_oid                     = 17
+	ASN1SchemaParserRULE_oid_assignment          = 18
+	ASN1SchemaParserRULE_octet_string            = 19
+	ASN1SchemaParserRULE_bit_string              = 20
+	ASN1SchemaParserRULE_string_string           = 21
+	ASN1SchemaParserRULE_sequence                = 22
+	ASN1SchemaParserRULE_sequence_list           = 23
+	ASN1SchemaParserRULE_sequence_of             = 24
+	ASN1SchemaParserRULE_choice                  = 25
+	ASN1SchemaParserRULE_any                     = 26
+	ASN1SchemaParserRULE_field_list              = 27
+	ASN1SchemaParserRULE_field_definition        = 28
+	ASN1SchemaParserRULE_string_literal          = 29
+	ASN1SchemaParserRULE_type_name               = 30
+	ASN1SchemaParserRULE_integer_oid_reference   = 31
+	ASN1SchemaParserRULE_value_identifier        = 32
+	ASN1SchemaParserRULE_field_name              = 33
+	ASN1SchemaParserRULE_custom_type_name        = 34
 )
 
 // IModuleContext is an interface to support dynamic dispatch.
@@ -335,22 +369,22 @@ func (p *ASN1SchemaParser) Module() (localctx IModuleContext) {
 	}()
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(59)
+	p.SetState(71)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	for ok := true; ok; ok = (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<ASN1SchemaParserSEQUENCE_LITERAL)|(1<<ASN1SchemaParserINTEGER_LITERAL)|(1<<ASN1SchemaParserBMPSTRING_LITERAL)|(1<<ASN1SchemaParserIA5STRING_LITERAL)|(1<<ASN1SchemaParserPRINTABLE_STRING_LITERAL)|(1<<ASN1SchemaParserTELETEX_STRING_LITERAL)|(1<<ASN1SchemaParserUNIVERSAL_STRING_LITERAL)|(1<<ASN1SchemaParserUTF8_STRING_LITERAL)|(1<<ASN1SchemaParserBIT_STRING_LITERAL)|(1<<ASN1SchemaParserOCTET_STRING_LITERAL)|(1<<ASN1SchemaParserOBJECT_IDENTIFIER_LITERAL)|(1<<ASN1SchemaParserWORD))) != 0) {
+	for ok := true; ok; ok = (((_la-10)&-(0x1f+1)) == 0 && ((1<<uint((_la-10)))&((1<<(ASN1SchemaParserSEQUENCE_LITERAL-10))|(1<<(ASN1SchemaParserINTEGER_LITERAL-10))|(1<<(ASN1SchemaParserANY_LITERAL-10))|(1<<(ASN1SchemaParserBMPSTRING_LITERAL-10))|(1<<(ASN1SchemaParserIA5STRING_LITERAL-10))|(1<<(ASN1SchemaParserPRINTABLE_STRING_LITERAL-10))|(1<<(ASN1SchemaParserTELETEX_STRING_LITERAL-10))|(1<<(ASN1SchemaParserUNIVERSAL_STRING_LITERAL-10))|(1<<(ASN1SchemaParserUTF8_STRING_LITERAL-10))|(1<<(ASN1SchemaParserBIT_STRING_LITERAL-10))|(1<<(ASN1SchemaParserOCTET_STRING_LITERAL-10))|(1<<(ASN1SchemaParserOBJECT_IDENTIFIER_LITERAL-10))|(1<<(ASN1SchemaParserWORD-10)))) != 0) {
 		{
-			p.SetState(58)
+			p.SetState(70)
 			p.Assignment()
 		}
 
-		p.SetState(61)
+		p.SetState(73)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 	}
 	{
-		p.SetState(63)
+		p.SetState(75)
 		p.Match(ASN1SchemaParserEOF)
 	}
 
@@ -419,6 +453,16 @@ func (s *AssignmentContext) Primitive() IPrimitiveContext {
 	return t.(IPrimitiveContext)
 }
 
+func (s *AssignmentContext) Oid_assignment() IOid_assignmentContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IOid_assignmentContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IOid_assignmentContext)
+}
+
 func (s *AssignmentContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
@@ -459,18 +503,31 @@ func (p *ASN1SchemaParser) Assignment() (localctx IAssignmentContext) {
 		}
 	}()
 
-	p.EnterOuterAlt(localctx, 1)
-	{
-		p.SetState(65)
-		p.Type_name()
-	}
-	{
-		p.SetState(66)
-		p.Match(ASN1SchemaParserASSIGN)
-	}
-	{
-		p.SetState(67)
-		p.Primitive()
+	p.SetState(82)
+	p.GetErrorHandler().Sync(p)
+	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 1, p.GetParserRuleContext()) {
+	case 1:
+		p.EnterOuterAlt(localctx, 1)
+		{
+			p.SetState(77)
+			p.Type_name()
+		}
+		{
+			p.SetState(78)
+			p.Match(ASN1SchemaParserASSIGN)
+		}
+		{
+			p.SetState(79)
+			p.Primitive()
+		}
+
+	case 2:
+		p.EnterOuterAlt(localctx, 2)
+		{
+			p.SetState(81)
+			p.Oid_assignment()
+		}
+
 	}
 
 	return localctx
@@ -584,6 +641,16 @@ func (s *PrimitiveContext) String_string() IString_stringContext {
 	return t.(IString_stringContext)
 }
 
+func (s *PrimitiveContext) Any() IAnyContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IAnyContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IAnyContext)
+}
+
 func (s *PrimitiveContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
@@ -624,57 +691,64 @@ func (p *ASN1SchemaParser) Primitive() (localctx IPrimitiveContext) {
 		}
 	}()
 
-	p.SetState(76)
+	p.SetState(92)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
 	case ASN1SchemaParserSEQUENCE_LITERAL:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(69)
+			p.SetState(84)
 			p.Sequence()
 		}
 
 	case ASN1SchemaParserCHOICE_LITERAL:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(70)
+			p.SetState(85)
 			p.Choice()
 		}
 
 	case ASN1SchemaParserINTEGER_LITERAL:
 		p.EnterOuterAlt(localctx, 3)
 		{
-			p.SetState(71)
+			p.SetState(86)
 			p.Integer_integer()
 		}
 
 	case ASN1SchemaParserOBJECT_IDENTIFIER_LITERAL:
 		p.EnterOuterAlt(localctx, 4)
 		{
-			p.SetState(72)
+			p.SetState(87)
 			p.Oid()
 		}
 
 	case ASN1SchemaParserOCTET_STRING_LITERAL:
 		p.EnterOuterAlt(localctx, 5)
 		{
-			p.SetState(73)
+			p.SetState(88)
 			p.Octet_string()
 		}
 
 	case ASN1SchemaParserBIT_STRING_LITERAL:
 		p.EnterOuterAlt(localctx, 6)
 		{
-			p.SetState(74)
+			p.SetState(89)
 			p.Bit_string()
 		}
 
 	case ASN1SchemaParserBMPSTRING_LITERAL, ASN1SchemaParserIA5STRING_LITERAL, ASN1SchemaParserPRINTABLE_STRING_LITERAL, ASN1SchemaParserTELETEX_STRING_LITERAL, ASN1SchemaParserUNIVERSAL_STRING_LITERAL, ASN1SchemaParserUTF8_STRING_LITERAL:
 		p.EnterOuterAlt(localctx, 7)
 		{
-			p.SetState(75)
+			p.SetState(90)
 			p.String_string()
+		}
+
+	case ASN1SchemaParserANY_LITERAL:
+		p.EnterOuterAlt(localctx, 8)
+		{
+			p.SetState(91)
+			p.Any()
 		}
 
 	default:
@@ -752,6 +826,10 @@ func (s *Primitive_nameContext) String_literal() IString_literalContext {
 	return t.(IString_literalContext)
 }
 
+func (s *Primitive_nameContext) ANY_LITERAL() antlr.TerminalNode {
+	return s.GetToken(ASN1SchemaParserANY_LITERAL, 0)
+}
+
 func (s *Primitive_nameContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
@@ -792,50 +870,57 @@ func (p *ASN1SchemaParser) Primitive_name() (localctx IPrimitive_nameContext) {
 		}
 	}()
 
-	p.SetState(84)
+	p.SetState(101)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
 	case ASN1SchemaParserSEQUENCE_LITERAL:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(78)
+			p.SetState(94)
 			p.Match(ASN1SchemaParserSEQUENCE_LITERAL)
 		}
 
 	case ASN1SchemaParserINTEGER_LITERAL:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(79)
+			p.SetState(95)
 			p.Match(ASN1SchemaParserINTEGER_LITERAL)
 		}
 
 	case ASN1SchemaParserOBJECT_IDENTIFIER_LITERAL:
 		p.EnterOuterAlt(localctx, 3)
 		{
-			p.SetState(80)
+			p.SetState(96)
 			p.Match(ASN1SchemaParserOBJECT_IDENTIFIER_LITERAL)
 		}
 
 	case ASN1SchemaParserOCTET_STRING_LITERAL:
 		p.EnterOuterAlt(localctx, 4)
 		{
-			p.SetState(81)
+			p.SetState(97)
 			p.Match(ASN1SchemaParserOCTET_STRING_LITERAL)
 		}
 
 	case ASN1SchemaParserBIT_STRING_LITERAL:
 		p.EnterOuterAlt(localctx, 5)
 		{
-			p.SetState(82)
+			p.SetState(98)
 			p.Match(ASN1SchemaParserBIT_STRING_LITERAL)
 		}
 
 	case ASN1SchemaParserBMPSTRING_LITERAL, ASN1SchemaParserIA5STRING_LITERAL, ASN1SchemaParserPRINTABLE_STRING_LITERAL, ASN1SchemaParserTELETEX_STRING_LITERAL, ASN1SchemaParserUNIVERSAL_STRING_LITERAL, ASN1SchemaParserUTF8_STRING_LITERAL:
 		p.EnterOuterAlt(localctx, 6)
 		{
-			p.SetState(83)
+			p.SetState(99)
 			p.String_literal()
+		}
+
+	case ASN1SchemaParserANY_LITERAL:
+		p.EnterOuterAlt(localctx, 7)
+		{
+			p.SetState(100)
+			p.Match(ASN1SchemaParserANY_LITERAL)
 		}
 
 	default:
@@ -937,15 +1022,15 @@ func (p *ASN1SchemaParser) Tag() (localctx ITagContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(86)
+		p.SetState(103)
 		p.Match(ASN1SchemaParserLBRACKET)
 	}
 	{
-		p.SetState(87)
+		p.SetState(104)
 		p.Match(ASN1SchemaParserINTEGER)
 	}
 	{
-		p.SetState(88)
+		p.SetState(105)
 		p.Match(ASN1SchemaParserRBRACKET)
 	}
 
@@ -1041,7 +1126,7 @@ func (p *ASN1SchemaParser) Context_flag() (localctx IContext_flagContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(90)
+		p.SetState(107)
 		_la = p.GetTokenStream().LA(1)
 
 		if !(_la == ASN1SchemaParserIMPLICIT_LITERAL || _la == ASN1SchemaParserEXPLICIT_LITERAL) {
@@ -1147,21 +1232,21 @@ func (p *ASN1SchemaParser) Encoding_flags() (localctx IEncoding_flagsContext) {
 		}
 	}()
 
-	p.SetState(94)
+	p.SetState(111)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
 	case ASN1SchemaParserOPTIONAL_LITERAL:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(92)
+			p.SetState(109)
 			p.Match(ASN1SchemaParserOPTIONAL_LITERAL)
 		}
 
 	case ASN1SchemaParserDEFAULT_LITERAL:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(93)
+			p.SetState(110)
 			p.Default_value()
 		}
 
@@ -1266,11 +1351,11 @@ func (p *ASN1SchemaParser) Default_value() (localctx IDefault_valueContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(96)
+		p.SetState(113)
 		p.Match(ASN1SchemaParserDEFAULT_LITERAL)
 	}
 	{
-		p.SetState(97)
+		p.SetState(114)
 		p.Value_identifier()
 	}
 
@@ -1395,40 +1480,40 @@ func (p *ASN1SchemaParser) Size_constraint() (localctx ISize_constraintContext) 
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(99)
+		p.SetState(116)
 		p.Match(ASN1SchemaParserSIZE_LITERAL)
 	}
 	{
-		p.SetState(100)
+		p.SetState(117)
 		p.Match(ASN1SchemaParserLPAREN)
 	}
 	{
-		p.SetState(101)
+		p.SetState(118)
 		p.Match(ASN1SchemaParserINTEGER)
 	}
 	{
-		p.SetState(102)
+		p.SetState(119)
 		p.Match(ASN1SchemaParserDOTDOT)
 	}
-	p.SetState(106)
+	p.SetState(123)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
 	case ASN1SchemaParserINTEGER:
 		{
-			p.SetState(103)
+			p.SetState(120)
 			p.Match(ASN1SchemaParserINTEGER)
 		}
 
 	case ASN1SchemaParserWORD:
 		{
-			p.SetState(104)
+			p.SetState(121)
 			p.Field_name()
 		}
 
 	case ASN1SchemaParserMAX:
 		{
-			p.SetState(105)
+			p.SetState(122)
 			p.Match(ASN1SchemaParserMAX)
 		}
 
@@ -1436,7 +1521,7 @@ func (p *ASN1SchemaParser) Size_constraint() (localctx ISize_constraintContext) 
 		panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
 	}
 	{
-		p.SetState(108)
+		p.SetState(125)
 		p.Match(ASN1SchemaParserRPAREN)
 	}
 
@@ -1533,7 +1618,7 @@ func (p *ASN1SchemaParser) Type_constraints() (localctx IType_constraintsContext
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(110)
+		p.SetState(127)
 		p.Size_constraint()
 	}
 
@@ -1678,59 +1763,59 @@ func (p *ASN1SchemaParser) Type_definition() (localctx IType_definitionContext) 
 	}()
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(113)
+	p.SetState(130)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	if _la == ASN1SchemaParserIMPLICIT_LITERAL || _la == ASN1SchemaParserEXPLICIT_LITERAL {
 		{
-			p.SetState(112)
+			p.SetState(129)
 			p.Context_flag()
 		}
 
 	}
-	p.SetState(123)
+	p.SetState(140)
 	p.GetErrorHandler().Sync(p)
-	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 7, p.GetParserRuleContext()) {
+	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 8, p.GetParserRuleContext()) {
 	case 1:
 		{
-			p.SetState(115)
+			p.SetState(132)
 			p.Primitive()
 		}
 
 	case 2:
 		{
-			p.SetState(116)
+			p.SetState(133)
 			p.Type_name()
 		}
-		p.SetState(121)
+		p.SetState(138)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		if _la == ASN1SchemaParserLPAREN {
 			{
-				p.SetState(117)
+				p.SetState(134)
 				p.Match(ASN1SchemaParserLPAREN)
 			}
 			{
-				p.SetState(118)
+				p.SetState(135)
 				p.Type_constraints()
 			}
 			{
-				p.SetState(119)
+				p.SetState(136)
 				p.Match(ASN1SchemaParserRPAREN)
 			}
 
 		}
 
 	}
-	p.SetState(126)
+	p.SetState(143)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	if _la == ASN1SchemaParserOPTIONAL_LITERAL || _la == ASN1SchemaParserDEFAULT_LITERAL {
 		{
-			p.SetState(125)
+			p.SetState(142)
 			p.Encoding_flags()
 		}
 
@@ -1842,27 +1927,149 @@ func (p *ASN1SchemaParser) Integer_integer() (localctx IInteger_integerContext) 
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(128)
+		p.SetState(145)
 		p.Match(ASN1SchemaParserINTEGER_LITERAL)
 	}
-	p.SetState(133)
+	p.SetState(150)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	if _la == ASN1SchemaParserLBRACE {
 		{
-			p.SetState(129)
+			p.SetState(146)
 			p.Match(ASN1SchemaParserLBRACE)
 		}
 		{
-			p.SetState(130)
+			p.SetState(147)
 			p.Integer_enum_value_list()
 		}
 		{
-			p.SetState(131)
+			p.SetState(148)
 			p.Match(ASN1SchemaParserRBRACE)
 		}
 
+	}
+
+	return localctx
+}
+
+// IInteger_valueContext is an interface to support dynamic dispatch.
+type IInteger_valueContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsInteger_valueContext differentiates from other interfaces.
+	IsInteger_valueContext()
+}
+
+type Integer_valueContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyInteger_valueContext() *Integer_valueContext {
+	var p = new(Integer_valueContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = ASN1SchemaParserRULE_integer_value
+	return p
+}
+
+func (*Integer_valueContext) IsInteger_valueContext() {}
+
+func NewInteger_valueContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Integer_valueContext {
+	var p = new(Integer_valueContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = ASN1SchemaParserRULE_integer_value
+
+	return p
+}
+
+func (s *Integer_valueContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Integer_valueContext) LPAREN() antlr.TerminalNode {
+	return s.GetToken(ASN1SchemaParserLPAREN, 0)
+}
+
+func (s *Integer_valueContext) RPAREN() antlr.TerminalNode {
+	return s.GetToken(ASN1SchemaParserRPAREN, 0)
+}
+
+func (s *Integer_valueContext) AllINTEGER() []antlr.TerminalNode {
+	return s.GetTokens(ASN1SchemaParserINTEGER)
+}
+
+func (s *Integer_valueContext) INTEGER(i int) antlr.TerminalNode {
+	return s.GetToken(ASN1SchemaParserINTEGER, i)
+}
+
+func (s *Integer_valueContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Integer_valueContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Integer_valueContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ASN1SchemaListener); ok {
+		listenerT.EnterInteger_value(s)
+	}
+}
+
+func (s *Integer_valueContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ASN1SchemaListener); ok {
+		listenerT.ExitInteger_value(s)
+	}
+}
+
+func (p *ASN1SchemaParser) Integer_value() (localctx IInteger_valueContext) {
+	localctx = NewInteger_valueContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 24, ASN1SchemaParserRULE_integer_value)
+	var _la int
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(152)
+		p.Match(ASN1SchemaParserLPAREN)
+	}
+	p.SetState(154)
+	p.GetErrorHandler().Sync(p)
+	_la = p.GetTokenStream().LA(1)
+
+	for ok := true; ok; ok = _la == ASN1SchemaParserINTEGER {
+		{
+			p.SetState(153)
+			p.Match(ASN1SchemaParserINTEGER)
+		}
+
+		p.SetState(156)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+	}
+	{
+		p.SetState(158)
+		p.Match(ASN1SchemaParserRPAREN)
 	}
 
 	return localctx
@@ -1952,7 +2159,7 @@ func (s *Integer_enum_value_listContext) ExitRule(listener antlr.ParseTreeListen
 
 func (p *ASN1SchemaParser) Integer_enum_value_list() (localctx IInteger_enum_value_listContext) {
 	localctx = NewInteger_enum_value_listContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 24, ASN1SchemaParserRULE_integer_enum_value_list)
+	p.EnterRule(localctx, 26, ASN1SchemaParserRULE_integer_enum_value_list)
 	var _la int
 
 	defer func() {
@@ -1973,20 +2180,20 @@ func (p *ASN1SchemaParser) Integer_enum_value_list() (localctx IInteger_enum_val
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(135)
+		p.SetState(160)
 		p.Integer_enum_value()
 	}
-	p.SetState(138)
+	p.SetState(163)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	if _la == ASN1SchemaParserCOMMA {
 		{
-			p.SetState(136)
+			p.SetState(161)
 			p.Match(ASN1SchemaParserCOMMA)
 		}
 		{
-			p.SetState(137)
+			p.SetState(162)
 			p.Integer_enum_value_list()
 		}
 
@@ -2043,20 +2250,14 @@ func (s *Integer_enum_valueContext) Field_name() IField_nameContext {
 	return t.(IField_nameContext)
 }
 
-func (s *Integer_enum_valueContext) LPAREN() antlr.TerminalNode {
-	return s.GetToken(ASN1SchemaParserLPAREN, 0)
-}
+func (s *Integer_enum_valueContext) Integer_value() IInteger_valueContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IInteger_valueContext)(nil)).Elem(), 0)
 
-func (s *Integer_enum_valueContext) RPAREN() antlr.TerminalNode {
-	return s.GetToken(ASN1SchemaParserRPAREN, 0)
-}
+	if t == nil {
+		return nil
+	}
 
-func (s *Integer_enum_valueContext) AllINTEGER() []antlr.TerminalNode {
-	return s.GetTokens(ASN1SchemaParserINTEGER)
-}
-
-func (s *Integer_enum_valueContext) INTEGER(i int) antlr.TerminalNode {
-	return s.GetToken(ASN1SchemaParserINTEGER, i)
+	return t.(IInteger_valueContext)
 }
 
 func (s *Integer_enum_valueContext) GetRuleContext() antlr.RuleContext {
@@ -2081,8 +2282,7 @@ func (s *Integer_enum_valueContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *ASN1SchemaParser) Integer_enum_value() (localctx IInteger_enum_valueContext) {
 	localctx = NewInteger_enum_valueContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 26, ASN1SchemaParserRULE_integer_enum_value)
-	var _la int
+	p.EnterRule(localctx, 28, ASN1SchemaParserRULE_integer_enum_value)
 
 	defer func() {
 		p.ExitRule()
@@ -2102,30 +2302,286 @@ func (p *ASN1SchemaParser) Integer_enum_value() (localctx IInteger_enum_valueCon
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(140)
+		p.SetState(165)
 		p.Field_name()
 	}
 	{
-		p.SetState(141)
-		p.Match(ASN1SchemaParserLPAREN)
+		p.SetState(166)
+		p.Integer_value()
 	}
-	p.SetState(143)
-	p.GetErrorHandler().Sync(p)
-	_la = p.GetTokenStream().LA(1)
 
-	for ok := true; ok; ok = _la == ASN1SchemaParserINTEGER {
-		{
-			p.SetState(142)
-			p.Match(ASN1SchemaParserINTEGER)
+	return localctx
+}
+
+// IInteger_oid_value_listContext is an interface to support dynamic dispatch.
+type IInteger_oid_value_listContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsInteger_oid_value_listContext differentiates from other interfaces.
+	IsInteger_oid_value_listContext()
+}
+
+type Integer_oid_value_listContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyInteger_oid_value_listContext() *Integer_oid_value_listContext {
+	var p = new(Integer_oid_value_listContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = ASN1SchemaParserRULE_integer_oid_value_list
+	return p
+}
+
+func (*Integer_oid_value_listContext) IsInteger_oid_value_listContext() {}
+
+func NewInteger_oid_value_listContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Integer_oid_value_listContext {
+	var p = new(Integer_oid_value_listContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = ASN1SchemaParserRULE_integer_oid_value_list
+
+	return p
+}
+
+func (s *Integer_oid_value_listContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Integer_oid_value_listContext) Integer_oid_value() IInteger_oid_valueContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IInteger_oid_valueContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IInteger_oid_valueContext)
+}
+
+func (s *Integer_oid_value_listContext) Integer_oid_value_list() IInteger_oid_value_listContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IInteger_oid_value_listContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IInteger_oid_value_listContext)
+}
+
+func (s *Integer_oid_value_listContext) AllINTEGER() []antlr.TerminalNode {
+	return s.GetTokens(ASN1SchemaParserINTEGER)
+}
+
+func (s *Integer_oid_value_listContext) INTEGER(i int) antlr.TerminalNode {
+	return s.GetToken(ASN1SchemaParserINTEGER, i)
+}
+
+func (s *Integer_oid_value_listContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Integer_oid_value_listContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Integer_oid_value_listContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ASN1SchemaListener); ok {
+		listenerT.EnterInteger_oid_value_list(s)
+	}
+}
+
+func (s *Integer_oid_value_listContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ASN1SchemaListener); ok {
+		listenerT.ExitInteger_oid_value_list(s)
+	}
+}
+
+func (p *ASN1SchemaParser) Integer_oid_value_list() (localctx IInteger_oid_value_listContext) {
+	localctx = NewInteger_oid_value_listContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 30, ASN1SchemaParserRULE_integer_oid_value_list)
+	var _la int
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
 		}
+	}()
 
-		p.SetState(145)
+	p.SetState(178)
+	p.GetErrorHandler().Sync(p)
+	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 15, p.GetParserRuleContext()) {
+	case 1:
+		p.EnterOuterAlt(localctx, 1)
+		{
+			p.SetState(168)
+			p.Integer_oid_value()
+		}
+		p.SetState(170)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
+
+		if _la == ASN1SchemaParserWORD {
+			{
+				p.SetState(169)
+				p.Integer_oid_value_list()
+			}
+
+		}
+
+	case 2:
+		p.EnterOuterAlt(localctx, 2)
+		{
+			p.SetState(172)
+			p.Integer_oid_value()
+		}
+		p.SetState(174)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		for ok := true; ok; ok = _la == ASN1SchemaParserINTEGER {
+			{
+				p.SetState(173)
+				p.Match(ASN1SchemaParserINTEGER)
+			}
+
+			p.SetState(176)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+		}
+
 	}
-	{
-		p.SetState(147)
-		p.Match(ASN1SchemaParserRPAREN)
+
+	return localctx
+}
+
+// IInteger_oid_valueContext is an interface to support dynamic dispatch.
+type IInteger_oid_valueContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsInteger_oid_valueContext differentiates from other interfaces.
+	IsInteger_oid_valueContext()
+}
+
+type Integer_oid_valueContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyInteger_oid_valueContext() *Integer_oid_valueContext {
+	var p = new(Integer_oid_valueContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = ASN1SchemaParserRULE_integer_oid_value
+	return p
+}
+
+func (*Integer_oid_valueContext) IsInteger_oid_valueContext() {}
+
+func NewInteger_oid_valueContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Integer_oid_valueContext {
+	var p = new(Integer_oid_valueContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = ASN1SchemaParserRULE_integer_oid_value
+
+	return p
+}
+
+func (s *Integer_oid_valueContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Integer_oid_valueContext) Integer_oid_reference() IInteger_oid_referenceContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IInteger_oid_referenceContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IInteger_oid_referenceContext)
+}
+
+func (s *Integer_oid_valueContext) Integer_enum_value() IInteger_enum_valueContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IInteger_enum_valueContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IInteger_enum_valueContext)
+}
+
+func (s *Integer_oid_valueContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Integer_oid_valueContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Integer_oid_valueContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ASN1SchemaListener); ok {
+		listenerT.EnterInteger_oid_value(s)
+	}
+}
+
+func (s *Integer_oid_valueContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ASN1SchemaListener); ok {
+		listenerT.ExitInteger_oid_value(s)
+	}
+}
+
+func (p *ASN1SchemaParser) Integer_oid_value() (localctx IInteger_oid_valueContext) {
+	localctx = NewInteger_oid_valueContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 32, ASN1SchemaParserRULE_integer_oid_value)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.SetState(182)
+	p.GetErrorHandler().Sync(p)
+	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 16, p.GetParserRuleContext()) {
+	case 1:
+		p.EnterOuterAlt(localctx, 1)
+		{
+			p.SetState(180)
+			p.Integer_oid_reference()
+		}
+
+	case 2:
+		p.EnterOuterAlt(localctx, 2)
+		{
+			p.SetState(181)
+			p.Integer_enum_value()
+		}
+
 	}
 
 	return localctx
@@ -2195,7 +2651,7 @@ func (s *OidContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *ASN1SchemaParser) Oid() (localctx IOidContext) {
 	localctx = NewOidContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 28, ASN1SchemaParserRULE_oid)
+	p.EnterRule(localctx, 34, ASN1SchemaParserRULE_oid)
 
 	defer func() {
 		p.ExitRule()
@@ -2215,8 +2671,151 @@ func (p *ASN1SchemaParser) Oid() (localctx IOidContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(149)
+		p.SetState(184)
 		p.Match(ASN1SchemaParserOBJECT_IDENTIFIER_LITERAL)
+	}
+
+	return localctx
+}
+
+// IOid_assignmentContext is an interface to support dynamic dispatch.
+type IOid_assignmentContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsOid_assignmentContext differentiates from other interfaces.
+	IsOid_assignmentContext()
+}
+
+type Oid_assignmentContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyOid_assignmentContext() *Oid_assignmentContext {
+	var p = new(Oid_assignmentContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = ASN1SchemaParserRULE_oid_assignment
+	return p
+}
+
+func (*Oid_assignmentContext) IsOid_assignmentContext() {}
+
+func NewOid_assignmentContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Oid_assignmentContext {
+	var p = new(Oid_assignmentContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = ASN1SchemaParserRULE_oid_assignment
+
+	return p
+}
+
+func (s *Oid_assignmentContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Oid_assignmentContext) Field_name() IField_nameContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IField_nameContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IField_nameContext)
+}
+
+func (s *Oid_assignmentContext) OBJECT_IDENTIFIER_LITERAL() antlr.TerminalNode {
+	return s.GetToken(ASN1SchemaParserOBJECT_IDENTIFIER_LITERAL, 0)
+}
+
+func (s *Oid_assignmentContext) ASSIGN() antlr.TerminalNode {
+	return s.GetToken(ASN1SchemaParserASSIGN, 0)
+}
+
+func (s *Oid_assignmentContext) LBRACE() antlr.TerminalNode {
+	return s.GetToken(ASN1SchemaParserLBRACE, 0)
+}
+
+func (s *Oid_assignmentContext) Integer_oid_value_list() IInteger_oid_value_listContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IInteger_oid_value_listContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IInteger_oid_value_listContext)
+}
+
+func (s *Oid_assignmentContext) RBRACE() antlr.TerminalNode {
+	return s.GetToken(ASN1SchemaParserRBRACE, 0)
+}
+
+func (s *Oid_assignmentContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Oid_assignmentContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Oid_assignmentContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ASN1SchemaListener); ok {
+		listenerT.EnterOid_assignment(s)
+	}
+}
+
+func (s *Oid_assignmentContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ASN1SchemaListener); ok {
+		listenerT.ExitOid_assignment(s)
+	}
+}
+
+func (p *ASN1SchemaParser) Oid_assignment() (localctx IOid_assignmentContext) {
+	localctx = NewOid_assignmentContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 36, ASN1SchemaParserRULE_oid_assignment)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(186)
+		p.Field_name()
+	}
+	{
+		p.SetState(187)
+		p.Match(ASN1SchemaParserOBJECT_IDENTIFIER_LITERAL)
+	}
+	{
+		p.SetState(188)
+		p.Match(ASN1SchemaParserASSIGN)
+	}
+	{
+		p.SetState(189)
+		p.Match(ASN1SchemaParserLBRACE)
+	}
+	{
+		p.SetState(190)
+		p.Integer_oid_value_list()
+	}
+	{
+		p.SetState(191)
+		p.Match(ASN1SchemaParserRBRACE)
 	}
 
 	return localctx
@@ -2296,7 +2895,7 @@ func (s *Octet_stringContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *ASN1SchemaParser) Octet_string() (localctx IOctet_stringContext) {
 	localctx = NewOctet_stringContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 30, ASN1SchemaParserRULE_octet_string)
+	p.EnterRule(localctx, 38, ASN1SchemaParserRULE_octet_string)
 	var _la int
 
 	defer func() {
@@ -2317,16 +2916,16 @@ func (p *ASN1SchemaParser) Octet_string() (localctx IOctet_stringContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(151)
+		p.SetState(193)
 		p.Match(ASN1SchemaParserOCTET_STRING_LITERAL)
 	}
-	p.SetState(153)
+	p.SetState(195)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	if _la == ASN1SchemaParserSIZE_LITERAL {
 		{
-			p.SetState(152)
+			p.SetState(194)
 			p.Type_constraints()
 		}
 
@@ -2409,7 +3008,7 @@ func (s *Bit_stringContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *ASN1SchemaParser) Bit_string() (localctx IBit_stringContext) {
 	localctx = NewBit_stringContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 32, ASN1SchemaParserRULE_bit_string)
+	p.EnterRule(localctx, 40, ASN1SchemaParserRULE_bit_string)
 	var _la int
 
 	defer func() {
@@ -2430,16 +3029,16 @@ func (p *ASN1SchemaParser) Bit_string() (localctx IBit_stringContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(155)
+		p.SetState(197)
 		p.Match(ASN1SchemaParserBIT_STRING_LITERAL)
 	}
-	p.SetState(157)
+	p.SetState(199)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	if _la == ASN1SchemaParserSIZE_LITERAL {
 		{
-			p.SetState(156)
+			p.SetState(198)
 			p.Type_constraints()
 		}
 
@@ -2528,7 +3127,7 @@ func (s *String_stringContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *ASN1SchemaParser) String_string() (localctx IString_stringContext) {
 	localctx = NewString_stringContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 34, ASN1SchemaParserRULE_string_string)
+	p.EnterRule(localctx, 42, ASN1SchemaParserRULE_string_string)
 	var _la int
 
 	defer func() {
@@ -2549,16 +3148,16 @@ func (p *ASN1SchemaParser) String_string() (localctx IString_stringContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(159)
+		p.SetState(201)
 		p.String_literal()
 	}
-	p.SetState(161)
+	p.SetState(203)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	if _la == ASN1SchemaParserSIZE_LITERAL {
 		{
-			p.SetState(160)
+			p.SetState(202)
 			p.Type_constraints()
 		}
 
@@ -2647,7 +3246,7 @@ func (s *SequenceContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *ASN1SchemaParser) Sequence() (localctx ISequenceContext) {
 	localctx = NewSequenceContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 36, ASN1SchemaParserRULE_sequence)
+	p.EnterRule(localctx, 44, ASN1SchemaParserRULE_sequence)
 
 	defer func() {
 		p.ExitRule()
@@ -2665,20 +3264,20 @@ func (p *ASN1SchemaParser) Sequence() (localctx ISequenceContext) {
 		}
 	}()
 
-	p.SetState(165)
+	p.SetState(207)
 	p.GetErrorHandler().Sync(p)
-	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 15, p.GetParserRuleContext()) {
+	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 20, p.GetParserRuleContext()) {
 	case 1:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(163)
+			p.SetState(205)
 			p.Sequence_list()
 		}
 
 	case 2:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(164)
+			p.SetState(206)
 			p.Sequence_of()
 		}
 
@@ -2769,7 +3368,7 @@ func (s *Sequence_listContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *ASN1SchemaParser) Sequence_list() (localctx ISequence_listContext) {
 	localctx = NewSequence_listContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 38, ASN1SchemaParserRULE_sequence_list)
+	p.EnterRule(localctx, 46, ASN1SchemaParserRULE_sequence_list)
 
 	defer func() {
 		p.ExitRule()
@@ -2789,19 +3388,19 @@ func (p *ASN1SchemaParser) Sequence_list() (localctx ISequence_listContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(167)
+		p.SetState(209)
 		p.Match(ASN1SchemaParserSEQUENCE_LITERAL)
 	}
 	{
-		p.SetState(168)
+		p.SetState(210)
 		p.Match(ASN1SchemaParserLBRACE)
 	}
 	{
-		p.SetState(169)
+		p.SetState(211)
 		p.Field_list()
 	}
 	{
-		p.SetState(170)
+		p.SetState(212)
 		p.Match(ASN1SchemaParserRBRACE)
 	}
 
@@ -2896,7 +3495,7 @@ func (s *Sequence_ofContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *ASN1SchemaParser) Sequence_of() (localctx ISequence_ofContext) {
 	localctx = NewSequence_ofContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 40, ASN1SchemaParserRULE_sequence_of)
+	p.EnterRule(localctx, 48, ASN1SchemaParserRULE_sequence_of)
 	var _la int
 
 	defer func() {
@@ -2917,26 +3516,26 @@ func (p *ASN1SchemaParser) Sequence_of() (localctx ISequence_ofContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(172)
+		p.SetState(214)
 		p.Match(ASN1SchemaParserSEQUENCE_LITERAL)
 	}
-	p.SetState(174)
+	p.SetState(216)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	if _la == ASN1SchemaParserSIZE_LITERAL {
 		{
-			p.SetState(173)
+			p.SetState(215)
 			p.Size_constraint()
 		}
 
 	}
 	{
-		p.SetState(176)
+		p.SetState(218)
 		p.Match(ASN1SchemaParserOF_LITERAL)
 	}
 	{
-		p.SetState(177)
+		p.SetState(219)
 		p.Type_name()
 	}
 
@@ -3025,7 +3624,7 @@ func (s *ChoiceContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *ASN1SchemaParser) Choice() (localctx IChoiceContext) {
 	localctx = NewChoiceContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 42, ASN1SchemaParserRULE_choice)
+	p.EnterRule(localctx, 50, ASN1SchemaParserRULE_choice)
 
 	defer func() {
 		p.ExitRule()
@@ -3045,20 +3644,133 @@ func (p *ASN1SchemaParser) Choice() (localctx IChoiceContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(179)
+		p.SetState(221)
 		p.Match(ASN1SchemaParserCHOICE_LITERAL)
 	}
 	{
-		p.SetState(180)
+		p.SetState(222)
 		p.Match(ASN1SchemaParserLBRACE)
 	}
 	{
-		p.SetState(181)
+		p.SetState(223)
 		p.Field_list()
 	}
 	{
-		p.SetState(182)
+		p.SetState(224)
 		p.Match(ASN1SchemaParserRBRACE)
+	}
+
+	return localctx
+}
+
+// IAnyContext is an interface to support dynamic dispatch.
+type IAnyContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsAnyContext differentiates from other interfaces.
+	IsAnyContext()
+}
+
+type AnyContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyAnyContext() *AnyContext {
+	var p = new(AnyContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = ASN1SchemaParserRULE_any
+	return p
+}
+
+func (*AnyContext) IsAnyContext() {}
+
+func NewAnyContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *AnyContext {
+	var p = new(AnyContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = ASN1SchemaParserRULE_any
+
+	return p
+}
+
+func (s *AnyContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *AnyContext) ANY_LITERAL() antlr.TerminalNode {
+	return s.GetToken(ASN1SchemaParserANY_LITERAL, 0)
+}
+
+func (s *AnyContext) DEFINED_BY_LITERAL() antlr.TerminalNode {
+	return s.GetToken(ASN1SchemaParserDEFINED_BY_LITERAL, 0)
+}
+
+func (s *AnyContext) Field_name() IField_nameContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IField_nameContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IField_nameContext)
+}
+
+func (s *AnyContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *AnyContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *AnyContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ASN1SchemaListener); ok {
+		listenerT.EnterAny(s)
+	}
+}
+
+func (s *AnyContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ASN1SchemaListener); ok {
+		listenerT.ExitAny(s)
+	}
+}
+
+func (p *ASN1SchemaParser) Any() (localctx IAnyContext) {
+	localctx = NewAnyContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 52, ASN1SchemaParserRULE_any)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(226)
+		p.Match(ASN1SchemaParserANY_LITERAL)
+	}
+	{
+		p.SetState(227)
+		p.Match(ASN1SchemaParserDEFINED_BY_LITERAL)
+	}
+	{
+		p.SetState(228)
+		p.Field_name()
 	}
 
 	return localctx
@@ -3148,7 +3860,7 @@ func (s *Field_listContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *ASN1SchemaParser) Field_list() (localctx IField_listContext) {
 	localctx = NewField_listContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 44, ASN1SchemaParserRULE_field_list)
+	p.EnterRule(localctx, 54, ASN1SchemaParserRULE_field_list)
 	var _la int
 
 	defer func() {
@@ -3169,20 +3881,20 @@ func (p *ASN1SchemaParser) Field_list() (localctx IField_listContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(184)
+		p.SetState(230)
 		p.Field_definition()
 	}
-	p.SetState(187)
+	p.SetState(233)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	if _la == ASN1SchemaParserCOMMA {
 		{
-			p.SetState(185)
+			p.SetState(231)
 			p.Match(ASN1SchemaParserCOMMA)
 		}
 		{
-			p.SetState(186)
+			p.SetState(232)
 			p.Field_list()
 		}
 
@@ -3281,7 +3993,7 @@ func (s *Field_definitionContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *ASN1SchemaParser) Field_definition() (localctx IField_definitionContext) {
 	localctx = NewField_definitionContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 46, ASN1SchemaParserRULE_field_definition)
+	p.EnterRule(localctx, 56, ASN1SchemaParserRULE_field_definition)
 	var _la int
 
 	defer func() {
@@ -3302,22 +4014,22 @@ func (p *ASN1SchemaParser) Field_definition() (localctx IField_definitionContext
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(189)
+		p.SetState(235)
 		p.Field_name()
 	}
-	p.SetState(191)
+	p.SetState(237)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	if _la == ASN1SchemaParserLBRACKET {
 		{
-			p.SetState(190)
+			p.SetState(236)
 			p.Tag()
 		}
 
 	}
 	{
-		p.SetState(193)
+		p.SetState(239)
 		p.Type_definition()
 	}
 
@@ -3408,7 +4120,7 @@ func (s *String_literalContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *ASN1SchemaParser) String_literal() (localctx IString_literalContext) {
 	localctx = NewString_literalContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 48, ASN1SchemaParserRULE_string_literal)
+	p.EnterRule(localctx, 58, ASN1SchemaParserRULE_string_literal)
 	var _la int
 
 	defer func() {
@@ -3429,7 +4141,7 @@ func (p *ASN1SchemaParser) String_literal() (localctx IString_literalContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(195)
+		p.SetState(241)
 		_la = p.GetTokenStream().LA(1)
 
 		if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<ASN1SchemaParserBMPSTRING_LITERAL)|(1<<ASN1SchemaParserIA5STRING_LITERAL)|(1<<ASN1SchemaParserPRINTABLE_STRING_LITERAL)|(1<<ASN1SchemaParserTELETEX_STRING_LITERAL)|(1<<ASN1SchemaParserUNIVERSAL_STRING_LITERAL)|(1<<ASN1SchemaParserUTF8_STRING_LITERAL))) != 0) {
@@ -3523,7 +4235,7 @@ func (s *Type_nameContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *ASN1SchemaParser) Type_name() (localctx IType_nameContext) {
 	localctx = NewType_nameContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 50, ASN1SchemaParserRULE_type_name)
+	p.EnterRule(localctx, 60, ASN1SchemaParserRULE_type_name)
 
 	defer func() {
 		p.ExitRule()
@@ -3541,26 +4253,123 @@ func (p *ASN1SchemaParser) Type_name() (localctx IType_nameContext) {
 		}
 	}()
 
-	p.SetState(199)
+	p.SetState(245)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
-	case ASN1SchemaParserSEQUENCE_LITERAL, ASN1SchemaParserINTEGER_LITERAL, ASN1SchemaParserBMPSTRING_LITERAL, ASN1SchemaParserIA5STRING_LITERAL, ASN1SchemaParserPRINTABLE_STRING_LITERAL, ASN1SchemaParserTELETEX_STRING_LITERAL, ASN1SchemaParserUNIVERSAL_STRING_LITERAL, ASN1SchemaParserUTF8_STRING_LITERAL, ASN1SchemaParserBIT_STRING_LITERAL, ASN1SchemaParserOCTET_STRING_LITERAL, ASN1SchemaParserOBJECT_IDENTIFIER_LITERAL:
+	case ASN1SchemaParserSEQUENCE_LITERAL, ASN1SchemaParserINTEGER_LITERAL, ASN1SchemaParserANY_LITERAL, ASN1SchemaParserBMPSTRING_LITERAL, ASN1SchemaParserIA5STRING_LITERAL, ASN1SchemaParserPRINTABLE_STRING_LITERAL, ASN1SchemaParserTELETEX_STRING_LITERAL, ASN1SchemaParserUNIVERSAL_STRING_LITERAL, ASN1SchemaParserUTF8_STRING_LITERAL, ASN1SchemaParserBIT_STRING_LITERAL, ASN1SchemaParserOCTET_STRING_LITERAL, ASN1SchemaParserOBJECT_IDENTIFIER_LITERAL:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(197)
+			p.SetState(243)
 			p.Primitive_name()
 		}
 
 	case ASN1SchemaParserWORD:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(198)
+			p.SetState(244)
 			p.Custom_type_name()
 		}
 
 	default:
 		panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
+	}
+
+	return localctx
+}
+
+// IInteger_oid_referenceContext is an interface to support dynamic dispatch.
+type IInteger_oid_referenceContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsInteger_oid_referenceContext differentiates from other interfaces.
+	IsInteger_oid_referenceContext()
+}
+
+type Integer_oid_referenceContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyInteger_oid_referenceContext() *Integer_oid_referenceContext {
+	var p = new(Integer_oid_referenceContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = ASN1SchemaParserRULE_integer_oid_reference
+	return p
+}
+
+func (*Integer_oid_referenceContext) IsInteger_oid_referenceContext() {}
+
+func NewInteger_oid_referenceContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Integer_oid_referenceContext {
+	var p = new(Integer_oid_referenceContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = ASN1SchemaParserRULE_integer_oid_reference
+
+	return p
+}
+
+func (s *Integer_oid_referenceContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Integer_oid_referenceContext) Field_name() IField_nameContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IField_nameContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IField_nameContext)
+}
+
+func (s *Integer_oid_referenceContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Integer_oid_referenceContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Integer_oid_referenceContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ASN1SchemaListener); ok {
+		listenerT.EnterInteger_oid_reference(s)
+	}
+}
+
+func (s *Integer_oid_referenceContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(ASN1SchemaListener); ok {
+		listenerT.ExitInteger_oid_reference(s)
+	}
+}
+
+func (p *ASN1SchemaParser) Integer_oid_reference() (localctx IInteger_oid_referenceContext) {
+	localctx = NewInteger_oid_referenceContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 62, ASN1SchemaParserRULE_integer_oid_reference)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(247)
+		p.Field_name()
 	}
 
 	return localctx
@@ -3634,7 +4443,7 @@ func (s *Value_identifierContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *ASN1SchemaParser) Value_identifier() (localctx IValue_identifierContext) {
 	localctx = NewValue_identifierContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 52, ASN1SchemaParserRULE_value_identifier)
+	p.EnterRule(localctx, 64, ASN1SchemaParserRULE_value_identifier)
 	var _la int
 
 	defer func() {
@@ -3655,7 +4464,7 @@ func (p *ASN1SchemaParser) Value_identifier() (localctx IValue_identifierContext
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(201)
+		p.SetState(249)
 		_la = p.GetTokenStream().LA(1)
 
 		if !(_la == ASN1SchemaParserINTEGER || _la == ASN1SchemaParserWORD) {
@@ -3733,7 +4542,7 @@ func (s *Field_nameContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *ASN1SchemaParser) Field_name() (localctx IField_nameContext) {
 	localctx = NewField_nameContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 54, ASN1SchemaParserRULE_field_name)
+	p.EnterRule(localctx, 66, ASN1SchemaParserRULE_field_name)
 
 	defer func() {
 		p.ExitRule()
@@ -3753,7 +4562,7 @@ func (p *ASN1SchemaParser) Field_name() (localctx IField_nameContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(203)
+		p.SetState(251)
 		p.Match(ASN1SchemaParserWORD)
 	}
 
@@ -3824,7 +4633,7 @@ func (s *Custom_type_nameContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *ASN1SchemaParser) Custom_type_name() (localctx ICustom_type_nameContext) {
 	localctx = NewCustom_type_nameContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 56, ASN1SchemaParserRULE_custom_type_name)
+	p.EnterRule(localctx, 68, ASN1SchemaParserRULE_custom_type_name)
 
 	defer func() {
 		p.ExitRule()
@@ -3844,7 +4653,7 @@ func (p *ASN1SchemaParser) Custom_type_name() (localctx ICustom_type_nameContext
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(205)
+		p.SetState(253)
 		p.Match(ASN1SchemaParserWORD)
 	}
 

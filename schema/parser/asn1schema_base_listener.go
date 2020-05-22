@@ -93,6 +93,12 @@ func (s *BaseASN1SchemaListener) EnterInteger_integer(ctx *Integer_integerContex
 // ExitInteger_integer is called when production integer_integer is exited.
 func (s *BaseASN1SchemaListener) ExitInteger_integer(ctx *Integer_integerContext) {}
 
+// EnterInteger_value is called when production integer_value is entered.
+func (s *BaseASN1SchemaListener) EnterInteger_value(ctx *Integer_valueContext) {}
+
+// ExitInteger_value is called when production integer_value is exited.
+func (s *BaseASN1SchemaListener) ExitInteger_value(ctx *Integer_valueContext) {}
+
 // EnterInteger_enum_value_list is called when production integer_enum_value_list is entered.
 func (s *BaseASN1SchemaListener) EnterInteger_enum_value_list(ctx *Integer_enum_value_listContext) {}
 
@@ -105,11 +111,29 @@ func (s *BaseASN1SchemaListener) EnterInteger_enum_value(ctx *Integer_enum_value
 // ExitInteger_enum_value is called when production integer_enum_value is exited.
 func (s *BaseASN1SchemaListener) ExitInteger_enum_value(ctx *Integer_enum_valueContext) {}
 
+// EnterInteger_oid_value_list is called when production integer_oid_value_list is entered.
+func (s *BaseASN1SchemaListener) EnterInteger_oid_value_list(ctx *Integer_oid_value_listContext) {}
+
+// ExitInteger_oid_value_list is called when production integer_oid_value_list is exited.
+func (s *BaseASN1SchemaListener) ExitInteger_oid_value_list(ctx *Integer_oid_value_listContext) {}
+
+// EnterInteger_oid_value is called when production integer_oid_value is entered.
+func (s *BaseASN1SchemaListener) EnterInteger_oid_value(ctx *Integer_oid_valueContext) {}
+
+// ExitInteger_oid_value is called when production integer_oid_value is exited.
+func (s *BaseASN1SchemaListener) ExitInteger_oid_value(ctx *Integer_oid_valueContext) {}
+
 // EnterOid is called when production oid is entered.
 func (s *BaseASN1SchemaListener) EnterOid(ctx *OidContext) {}
 
 // ExitOid is called when production oid is exited.
 func (s *BaseASN1SchemaListener) ExitOid(ctx *OidContext) {}
+
+// EnterOid_assignment is called when production oid_assignment is entered.
+func (s *BaseASN1SchemaListener) EnterOid_assignment(ctx *Oid_assignmentContext) {}
+
+// ExitOid_assignment is called when production oid_assignment is exited.
+func (s *BaseASN1SchemaListener) ExitOid_assignment(ctx *Oid_assignmentContext) {}
 
 // EnterOctet_string is called when production octet_string is entered.
 func (s *BaseASN1SchemaListener) EnterOctet_string(ctx *Octet_stringContext) {}
@@ -153,6 +177,12 @@ func (s *BaseASN1SchemaListener) EnterChoice(ctx *ChoiceContext) {}
 // ExitChoice is called when production choice is exited.
 func (s *BaseASN1SchemaListener) ExitChoice(ctx *ChoiceContext) {}
 
+// EnterAny is called when production any is entered.
+func (s *BaseASN1SchemaListener) EnterAny(ctx *AnyContext) {}
+
+// ExitAny is called when production any is exited.
+func (s *BaseASN1SchemaListener) ExitAny(ctx *AnyContext) {}
+
 // EnterField_list is called when production field_list is entered.
 func (s *BaseASN1SchemaListener) EnterField_list(ctx *Field_listContext) {}
 
@@ -176,6 +206,12 @@ func (s *BaseASN1SchemaListener) EnterType_name(ctx *Type_nameContext) {}
 
 // ExitType_name is called when production type_name is exited.
 func (s *BaseASN1SchemaListener) ExitType_name(ctx *Type_nameContext) {}
+
+// EnterInteger_oid_reference is called when production integer_oid_reference is entered.
+func (s *BaseASN1SchemaListener) EnterInteger_oid_reference(ctx *Integer_oid_referenceContext) {}
+
+// ExitInteger_oid_reference is called when production integer_oid_reference is exited.
+func (s *BaseASN1SchemaListener) ExitInteger_oid_reference(ctx *Integer_oid_referenceContext) {}
 
 // EnterValue_identifier is called when production value_identifier is entered.
 func (s *BaseASN1SchemaListener) EnterValue_identifier(ctx *Value_identifierContext) {}

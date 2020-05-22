@@ -44,14 +44,26 @@ type ASN1SchemaListener interface {
 	// EnterInteger_integer is called when entering the integer_integer production.
 	EnterInteger_integer(c *Integer_integerContext)
 
+	// EnterInteger_value is called when entering the integer_value production.
+	EnterInteger_value(c *Integer_valueContext)
+
 	// EnterInteger_enum_value_list is called when entering the integer_enum_value_list production.
 	EnterInteger_enum_value_list(c *Integer_enum_value_listContext)
 
 	// EnterInteger_enum_value is called when entering the integer_enum_value production.
 	EnterInteger_enum_value(c *Integer_enum_valueContext)
 
+	// EnterInteger_oid_value_list is called when entering the integer_oid_value_list production.
+	EnterInteger_oid_value_list(c *Integer_oid_value_listContext)
+
+	// EnterInteger_oid_value is called when entering the integer_oid_value production.
+	EnterInteger_oid_value(c *Integer_oid_valueContext)
+
 	// EnterOid is called when entering the oid production.
 	EnterOid(c *OidContext)
+
+	// EnterOid_assignment is called when entering the oid_assignment production.
+	EnterOid_assignment(c *Oid_assignmentContext)
 
 	// EnterOctet_string is called when entering the octet_string production.
 	EnterOctet_string(c *Octet_stringContext)
@@ -74,6 +86,9 @@ type ASN1SchemaListener interface {
 	// EnterChoice is called when entering the choice production.
 	EnterChoice(c *ChoiceContext)
 
+	// EnterAny is called when entering the any production.
+	EnterAny(c *AnyContext)
+
 	// EnterField_list is called when entering the field_list production.
 	EnterField_list(c *Field_listContext)
 
@@ -85,6 +100,9 @@ type ASN1SchemaListener interface {
 
 	// EnterType_name is called when entering the type_name production.
 	EnterType_name(c *Type_nameContext)
+
+	// EnterInteger_oid_reference is called when entering the integer_oid_reference production.
+	EnterInteger_oid_reference(c *Integer_oid_referenceContext)
 
 	// EnterValue_identifier is called when entering the value_identifier production.
 	EnterValue_identifier(c *Value_identifierContext)
@@ -131,14 +149,26 @@ type ASN1SchemaListener interface {
 	// ExitInteger_integer is called when exiting the integer_integer production.
 	ExitInteger_integer(c *Integer_integerContext)
 
+	// ExitInteger_value is called when exiting the integer_value production.
+	ExitInteger_value(c *Integer_valueContext)
+
 	// ExitInteger_enum_value_list is called when exiting the integer_enum_value_list production.
 	ExitInteger_enum_value_list(c *Integer_enum_value_listContext)
 
 	// ExitInteger_enum_value is called when exiting the integer_enum_value production.
 	ExitInteger_enum_value(c *Integer_enum_valueContext)
 
+	// ExitInteger_oid_value_list is called when exiting the integer_oid_value_list production.
+	ExitInteger_oid_value_list(c *Integer_oid_value_listContext)
+
+	// ExitInteger_oid_value is called when exiting the integer_oid_value production.
+	ExitInteger_oid_value(c *Integer_oid_valueContext)
+
 	// ExitOid is called when exiting the oid production.
 	ExitOid(c *OidContext)
+
+	// ExitOid_assignment is called when exiting the oid_assignment production.
+	ExitOid_assignment(c *Oid_assignmentContext)
 
 	// ExitOctet_string is called when exiting the octet_string production.
 	ExitOctet_string(c *Octet_stringContext)
@@ -161,6 +191,9 @@ type ASN1SchemaListener interface {
 	// ExitChoice is called when exiting the choice production.
 	ExitChoice(c *ChoiceContext)
 
+	// ExitAny is called when exiting the any production.
+	ExitAny(c *AnyContext)
+
 	// ExitField_list is called when exiting the field_list production.
 	ExitField_list(c *Field_listContext)
 
@@ -172,6 +205,9 @@ type ASN1SchemaListener interface {
 
 	// ExitType_name is called when exiting the type_name production.
 	ExitType_name(c *Type_nameContext)
+
+	// ExitInteger_oid_reference is called when exiting the integer_oid_reference production.
+	ExitInteger_oid_reference(c *Integer_oid_referenceContext)
 
 	// ExitValue_identifier is called when exiting the value_identifier production.
 	ExitValue_identifier(c *Value_identifierContext)
