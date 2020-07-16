@@ -13,6 +13,12 @@ import (
 
 type TokenType uint16
 
+// TwoWordTokenFlag is a bit mask that indicates the TokenType is two words
+const TwoWordTokenFlag TokenType = 0x8000
+
+// RequiresPreviousTokenFlag is a bit mask that indicates the previous token is required for context
+const RequiresPreviousTokenFlag TokenType = 0x4000
+
 // Tokens used by ASN1 grammars
 const (
 	SPACE                     TokenType = 0
@@ -31,24 +37,18 @@ const (
 	EXPLICIT_LITERAL          TokenType = 13
 	OPTIONAL_LITERAL          TokenType = 14
 	DEFAULT_LITERAL           TokenType = 15
-	DEFINED_BY_LITERAL        TokenType = 16
+	DEFINED_BY_LITERAL        TokenType = 16 | TwoWordTokenFlag
 	ANY_LITERAL               TokenType = 17
-	OF_LITERAL                TokenType = 18
+	OF_LITERAL                TokenType = 18 | RequiresPreviousTokenFlag
 	CHOICE_LITERAL            TokenType = 19
 	SIZE_LITERAL              TokenType = 20
 	MAX                       TokenType = 21
-	BMPSTRING_LITERAL         TokenType = 22
-	IA5STRING_LITERAL         TokenType = 23
-	PRINTABLE_STRING_LITERAL  TokenType = 24
-	TELETEX_STRING_LITERAL    TokenType = 25
-	UNIVERSAL_STRING_LITERAL  TokenType = 26
-	UTF8_STRING_LITERAL       TokenType = 27
-	BIT_STRING_LITERAL        TokenType = 28
-	OCTET_STRING_LITERAL      TokenType = 29
-	OBJECT_IDENTIFIER_LITERAL TokenType = 30
-	DOTDOT                    TokenType = 31
-	INTEGER                   TokenType = 32
-	WORD                      TokenType = 33
+	BIT_STRING_LITERAL        TokenType = 28 | TwoWordTokenFlag
+	OCTET_STRING_LITERAL      TokenType = 29 | TwoWordTokenFlag
+	OBJECT_IDENTIFIER_LITERAL TokenType = 30 | TwoWordTokenFlag
+	DOTDOT                    TokenType = 32
+	INTEGER                   TokenType = 33
+	WORD                      TokenType = 34
 )
 
 type Token struct {
@@ -93,14 +93,48 @@ func transition(curState tokenState, r rune) (tokenState, runeAction) {
 	}
 }
 
+func CollapseOrAppendTokens(tokens []Token, next *Token) (changed bool, replacement TokenType) {
+	if next.Typ != WORD {
+		return
+	}
+	tokensSoFar := len(tokens)
+	if tokensSoFar < 1 {
+		return
+	}
+	prev := &tokens[tokensSoFar-1]
+	if next.Value == "STRING" && prev.Typ == WORD {
+		switch prev.Value {
+		case "BIT":
+			return true, BIT_STRING_LITERAL
+		case "OCTET":
+			return true, OCTET_STRING_LITERAL
+		}
+		return
+	}
+	if next.Value == "IDENTIFIER" && prev.Typ == WORD {
+		switch prev.Value {
+		case "OBJECT":
+			return true, OBJECT_IDENTIFIER_LITERAL
+		}
+		return
+	}
+	return
+}
+
 func ChunkToTokenType(chunk string) (ok bool, out TokenType) {
 	switch chunk {
+	case "--":
+		return true, COMMENT
 	case "::=":
 		return true, ASSIGN
 	case "{":
 		return true, LBRACE
 	case "}":
 		return true, RBRACE
+	case "[":
+		return true, LBRACKET
+	case "]":
+		return true, RBRACKET
 	case "(":
 		return true, LPAREN
 	case ")":
@@ -109,6 +143,41 @@ func ChunkToTokenType(chunk string) (ok bool, out TokenType) {
 		return true, COMMA
 	case "SEQUENCE":
 		return true, SEQUENCE_LITERAL
+	case "INTEGER":
+		return true, INTEGER_LITERAL
+	case "IMPLICIT":
+		return true, IMPLICIT_LITERAL
+	case "EXPLICIT":
+		return true, EXPLICIT_LITERAL
+	case "OPTIONAL":
+		return true, OPTIONAL_LITERAL
+	case "DEFAULT":
+		return true, DEFAULT_LITERAL
+	case "DEFINED BY":
+		return true, DEFINED_BY_LITERAL
+	case "ANY":
+		return true, ANY_LITERAL
+	case "OF":
+		return true, OF_LITERAL
+	case "CHOICE":
+		return true, CHOICE_LITERAL
+	case "SIZE":
+		return true, SIZE_LITERAL
+	case "MAX":
+		return true, MAX
+	case "BIT STRING":
+		return true, BIT_STRING_LITERAL
+	case "OCTET STRING":
+		return true, OCTET_STRING_LITERAL
+	case "OBJECT IDENTIFIER":
+		return true, OBJECT_IDENTIFIER_LITERAL
+	case "..":
+		return true, DOTDOT
+	}
+	if strings.IndexFunc(chunk, func(r rune) bool {
+		return !unicode.IsDigit(r)
+	}) == -1 {
+		return true, INTEGER
 	}
 	if strings.IndexFunc(chunk, func(r rune) bool {
 		return !unicode.IsDigit(r) && !unicode.IsLetter(r)
@@ -118,20 +187,25 @@ func ChunkToTokenType(chunk string) (ok bool, out TokenType) {
 	return false, out
 }
 
-var chunks []string
-
 func finishChunk(chunk *[]rune, out *[]Token) {
 	if len(*chunk) > 0 {
 		c := string(*chunk)
 		logrus.Debugf("got chunk: %s", c)
-		chunks = append(chunks, c)
-		if ok, t := ChunkToTokenType(c); ok {
+		if ok, tt := ChunkToTokenType(c); ok {
 			// TODO(dadrian): Only save values for token types that are variable
-			logrus.Debugf("got TokenType: %s", t)
-			*out = append(*out, Token{
-				Typ:   t,
+			logrus.Debugf("got TokenType: %s", tt)
+			t := Token{
+				Typ:   tt,
 				Value: c,
-			})
+			}
+			needsReplacement, newTokenType := CollapseOrAppendTokens(*out, &t)
+			if needsReplacement {
+				(*out)[len(*out)-1] = Token{
+					Typ: newTokenType,
+				}
+			} else {
+				*out = append(*out, t)
+			}
 		}
 		*chunk = (*chunk)[:0]
 	}
@@ -153,7 +227,6 @@ func Tokenize(in io.ReadSeeker) ([]Token, error) {
 	br := bufio.NewReaderSize(in, int(fileSize))
 	state := tokenStateBegin
 	chunk := make([]rune, 0)
-	chunks = make([]string, 0)
 	for {
 		r, _, err := br.ReadRune()
 		if err == io.EOF {
@@ -177,6 +250,5 @@ func Tokenize(in io.ReadSeeker) ([]Token, error) {
 		}
 		state = nextState
 	}
-	logrus.Debugf("chunks [%d]: %v", len(chunks), chunks)
 	return out, errors.New("unimplemented")
 }

@@ -11,6 +11,7 @@ func TestTokenizer(t *testing.T) {
 	logrus.SetLevel(logrus.DebugLevel)
 	files := []string{
 		"success/sequence.asn1",
+		"success/sequence_sequence.asn1",
 	}
 	for _, p := range files {
 		prefixedPath := "testdata/" + p

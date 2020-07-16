@@ -8,6 +8,8 @@ func _() {
 	// An "invalid array index" compiler error signifies that the constant values have changed.
 	// Re-run the stringer command to generate them again.
 	var x [1]struct{}
+	_ = x[TwoWordTokenFlag-32768]
+	_ = x[RequiresPreviousTokenFlag-16384]
 	_ = x[SPACE-0]
 	_ = x[COMMENT-1]
 	_ = x[ASSIGN-2]
@@ -24,33 +26,63 @@ func _() {
 	_ = x[EXPLICIT_LITERAL-13]
 	_ = x[OPTIONAL_LITERAL-14]
 	_ = x[DEFAULT_LITERAL-15]
-	_ = x[DEFINED_BY_LITERAL-16]
+	_ = x[DEFINED_BY_LITERAL-32784]
 	_ = x[ANY_LITERAL-17]
-	_ = x[OF_LITERAL-18]
+	_ = x[OF_LITERAL-16402]
 	_ = x[CHOICE_LITERAL-19]
 	_ = x[SIZE_LITERAL-20]
 	_ = x[MAX-21]
-	_ = x[BMPSTRING_LITERAL-22]
-	_ = x[IA5STRING_LITERAL-23]
-	_ = x[PRINTABLE_STRING_LITERAL-24]
-	_ = x[TELETEX_STRING_LITERAL-25]
-	_ = x[UNIVERSAL_STRING_LITERAL-26]
-	_ = x[UTF8_STRING_LITERAL-27]
-	_ = x[BIT_STRING_LITERAL-28]
-	_ = x[OCTET_STRING_LITERAL-29]
-	_ = x[OBJECT_IDENTIFIER_LITERAL-30]
-	_ = x[DOTDOT-31]
-	_ = x[INTEGER-32]
-	_ = x[WORD-33]
+	_ = x[BIT_STRING_LITERAL-32796]
+	_ = x[OCTET_STRING_LITERAL-32797]
+	_ = x[OBJECT_IDENTIFIER_LITERAL-32798]
+	_ = x[DOTDOT-32]
+	_ = x[INTEGER-33]
+	_ = x[WORD-34]
 }
 
-const _TokenType_name = "SPACECOMMENTASSIGNLBRACERBRACELBRACKETRBRACKETLPARENRPARENCOMMASEQUENCE_LITERALINTEGER_LITERALIMPLICIT_LITERALEXPLICIT_LITERALOPTIONAL_LITERALDEFAULT_LITERALDEFINED_BY_LITERALANY_LITERALOF_LITERALCHOICE_LITERALSIZE_LITERALMAXBMPSTRING_LITERALIA5STRING_LITERALPRINTABLE_STRING_LITERALTELETEX_STRING_LITERALUNIVERSAL_STRING_LITERALUTF8_STRING_LITERALBIT_STRING_LITERALOCTET_STRING_LITERALOBJECT_IDENTIFIER_LITERALDOTDOTINTEGERWORD"
+const (
+	_TokenType_name_0 = "SPACECOMMENTASSIGNLBRACERBRACELBRACKETRBRACKETLPARENRPARENCOMMASEQUENCE_LITERALINTEGER_LITERALIMPLICIT_LITERALEXPLICIT_LITERALOPTIONAL_LITERALDEFAULT_LITERAL"
+	_TokenType_name_1 = "ANY_LITERAL"
+	_TokenType_name_2 = "CHOICE_LITERALSIZE_LITERALMAX"
+	_TokenType_name_3 = "DOTDOTINTEGERWORD"
+	_TokenType_name_4 = "RequiresPreviousTokenFlag"
+	_TokenType_name_5 = "OF_LITERAL"
+	_TokenType_name_6 = "TwoWordTokenFlag"
+	_TokenType_name_7 = "DEFINED_BY_LITERAL"
+	_TokenType_name_8 = "BIT_STRING_LITERALOCTET_STRING_LITERALOBJECT_IDENTIFIER_LITERAL"
+)
 
-var _TokenType_index = [...]uint16{0, 5, 12, 18, 24, 30, 38, 46, 52, 58, 63, 79, 94, 110, 126, 142, 157, 175, 186, 196, 210, 222, 225, 242, 259, 283, 305, 329, 348, 366, 386, 411, 417, 424, 428}
+var (
+	_TokenType_index_0 = [...]uint8{0, 5, 12, 18, 24, 30, 38, 46, 52, 58, 63, 79, 94, 110, 126, 142, 157}
+	_TokenType_index_2 = [...]uint8{0, 14, 26, 29}
+	_TokenType_index_3 = [...]uint8{0, 6, 13, 17}
+	_TokenType_index_8 = [...]uint8{0, 18, 38, 63}
+)
 
 func (i TokenType) String() string {
-	if i >= TokenType(len(_TokenType_index)-1) {
+	switch {
+	case i <= 15:
+		return _TokenType_name_0[_TokenType_index_0[i]:_TokenType_index_0[i+1]]
+	case i == 17:
+		return _TokenType_name_1
+	case 19 <= i && i <= 21:
+		i -= 19
+		return _TokenType_name_2[_TokenType_index_2[i]:_TokenType_index_2[i+1]]
+	case 32 <= i && i <= 34:
+		i -= 32
+		return _TokenType_name_3[_TokenType_index_3[i]:_TokenType_index_3[i+1]]
+	case i == 16384:
+		return _TokenType_name_4
+	case i == 16402:
+		return _TokenType_name_5
+	case i == 32768:
+		return _TokenType_name_6
+	case i == 32784:
+		return _TokenType_name_7
+	case 32796 <= i && i <= 32798:
+		i -= 32796
+		return _TokenType_name_8[_TokenType_index_8[i]:_TokenType_index_8[i+1]]
+	default:
 		return "TokenType(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
-	return _TokenType_name[_TokenType_index[i]:_TokenType_index[i+1]]
 }
