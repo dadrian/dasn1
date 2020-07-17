@@ -3,12 +3,11 @@ package schema
 import (
 	"bufio"
 	"errors"
+	"fmt"
 	"io"
 	"math"
 	"strings"
 	"unicode"
-
-	"github.com/sirupsen/logrus"
 )
 
 type TokenType uint16
@@ -61,8 +60,9 @@ type Token struct {
 type tokenState int
 
 const (
-	tokenStateBegin  tokenState = iota
-	tokenStateMaybeN tokenState = iota
+	tokenStateBegin      tokenState = iota
+	tokenStateMaybeN     tokenState = iota
+	tokenStateFinishLine tokenState = iota
 )
 
 type runeAction int
@@ -73,7 +73,7 @@ const (
 	runeActionSplitOne runeAction = iota
 )
 
-func transition(curState tokenState, r rune) (tokenState, runeAction) {
+func stateTransition(curState tokenState, r rune) (tokenState, runeAction) {
 	switch curState {
 	case tokenStateBegin:
 		if unicode.IsSpace(r) {
@@ -88,6 +88,11 @@ func transition(curState tokenState, r rune) (tokenState, runeAction) {
 			return tokenStateBegin, runeActionSplitOne
 		}
 		return tokenStateMaybeN, runeActionAppend
+	case tokenStateFinishLine:
+		if r == '\n' {
+			return tokenStateBegin, runeActionIgnore
+		}
+		return tokenStateFinishLine, runeActionIgnore
 	default:
 		panic("invalid token state")
 	}
@@ -123,8 +128,6 @@ func CollapseOrAppendTokens(tokens []Token, next *Token) (changed bool, replacem
 
 func ChunkToTokenType(chunk string) (ok bool, out TokenType) {
 	switch chunk {
-	case "--":
-		return true, COMMENT
 	case "::=":
 		return true, ASSIGN
 	case "{":
@@ -174,6 +177,9 @@ func ChunkToTokenType(chunk string) (ok bool, out TokenType) {
 	case "..":
 		return true, DOTDOT
 	}
+	if strings.HasPrefix(chunk, "--") {
+		return true, COMMENT
+	}
 	if strings.IndexFunc(chunk, func(r rune) bool {
 		return !unicode.IsDigit(r)
 	}) == -1 {
@@ -187,28 +193,38 @@ func ChunkToTokenType(chunk string) (ok bool, out TokenType) {
 	return false, out
 }
 
-func finishChunk(chunk *[]rune, out *[]Token) {
+func finishChunk(chunk *[]rune, out *[]Token, nextRuneState tokenState) (nextState tokenState) {
+	nextState = nextRuneState
 	if len(*chunk) > 0 {
 		c := string(*chunk)
-		logrus.Debugf("got chunk: %s", c)
 		if ok, tt := ChunkToTokenType(c); ok {
 			// TODO(dadrian): Only save values for token types that are variable
-			logrus.Debugf("got TokenType: %s", tt)
-			t := Token{
-				Typ:   tt,
-				Value: c,
-			}
-			needsReplacement, newTokenType := CollapseOrAppendTokens(*out, &t)
-			if needsReplacement {
-				(*out)[len(*out)-1] = Token{
-					Typ: newTokenType,
+			if tt != COMMENT {
+				t := Token{
+					Typ:   tt,
+					Value: c,
 				}
-			} else {
-				*out = append(*out, t)
+				needsReplacement, newTokenType := CollapseOrAppendTokens(*out, &t)
+				if needsReplacement {
+					(*out)[len(*out)-1] = Token{
+						Typ: newTokenType,
+					}
+				} else {
+					*out = append(*out, t)
+				}
 			}
+			nextState = tokenStateTransition(nextRuneState, tt)
 		}
 		*chunk = (*chunk)[:0]
 	}
+	return
+}
+
+func tokenStateTransition(nextRuneState tokenState, tokenType TokenType) tokenState {
+	if tokenType == COMMENT {
+		return tokenStateFinishLine
+	}
+	return nextRuneState
 }
 
 // Tokenize splits an input file into Tokens
@@ -235,20 +251,93 @@ func Tokenize(in io.ReadSeeker) ([]Token, error) {
 		if err != nil {
 			return nil, errors.New("not utf8")
 		}
-		nextState, action := transition(state, r)
+		nextState, action := stateTransition(state, r)
 		switch action {
 		case runeActionIgnore:
 		case runeActionAppend:
 			chunk = append(chunk, r)
 		case runeActionSplitOne:
 			// TODO(dadrian): I should really use a stack here
-			finishChunk(&chunk, &out)
+			nextState = finishChunk(&chunk, &out, nextState)
 			chunk = append(chunk, r)
 		}
 		if nextState == tokenStateBegin {
-			finishChunk(&chunk, &out)
+			nextState = finishChunk(&chunk, &out, nextState)
 		}
 		state = nextState
 	}
-	return out, errors.New("unimplemented")
+	return out, nil
+}
+
+type ASTNode struct {
+	Token      *Token
+	Parent     *ASTNode
+	LeftChild  *ASTNode
+	RightChild *ASTNode
+}
+
+type AST struct {
+	Root *ASTNode
+}
+
+func rotateLeft(ast *AST, existingNode, newNode *ASTNode) {
+	// TODO(dadrian): enforce well-formed constraints on tree?
+	oldParent := existingNode.Parent
+	newNode.Parent = oldParent
+	if oldParent != nil {
+		isLeft := existingNode == oldParent.LeftChild
+		if isLeft {
+			oldParent.LeftChild = newNode
+		} else {
+			oldParent.RightChild = newNode
+		}
+	} else {
+		ast.Root = newNode
+	}
+	newNode.LeftChild = existingNode
+	return
+}
+
+func addTokenToTree(ast *AST, lastNode *ASTNode, token *Token) (*ASTNode, error) {
+	node := &ASTNode{
+		Token: token,
+	}
+	switch token.Typ {
+	case ASSIGN:
+		rotateLeft(ast, lastNode, node)
+		return node, nil
+	}
+	lastNode.RightChild = node
+	node.Parent = lastNode
+	return node, nil
+}
+
+func TokensToAST(tokens []Token) (*AST, error) {
+	ast := AST{}
+	if len(tokens) == 0 {
+		return &ast, nil
+	}
+	ast.Root = &ASTNode{
+		Token: &tokens[0],
+	}
+	lastNode := ast.Root
+	for i := range tokens[1:] {
+		node, err := addTokenToTree(&ast, lastNode, &tokens[i+1])
+		if err != nil {
+			return nil, err
+		}
+		lastNode = node
+	}
+	return &ast, nil
+}
+
+func (node *ASTNode) String() string {
+	if node == nil {
+		return "()"
+	}
+	return fmt.Sprintf("(%s %s %s)", node.Token.Typ, node.LeftChild.String(), node.RightChild.String())
+}
+
+func (ast *AST) String() string {
+	return ast.Root.String()
 }
