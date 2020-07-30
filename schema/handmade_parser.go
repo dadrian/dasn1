@@ -60,17 +60,17 @@ type Token struct {
 type tokenState int
 
 const (
-	tokenStateBegin      tokenState = iota
-	tokenStateMaybeN     tokenState = iota
-	tokenStateFinishLine tokenState = iota
+	tokenStateBegin tokenState = iota
+	tokenStateMaybeN
+	tokenStateFinishLine
 )
 
 type runeAction int
 
 const (
-	runeActionIgnore   runeAction = iota
-	runeActionAppend   runeAction = iota
-	runeActionSplitOne runeAction = iota
+	runeActionIgnore runeAction = iota
+	runeActionAppend
+	runeActionSplitOne
 )
 
 func stateTransition(curState tokenState, r rune) (tokenState, runeAction) {
@@ -274,6 +274,8 @@ type ASTNode struct {
 	Parent     *ASTNode
 	LeftChild  *ASTNode
 	RightChild *ASTNode
+
+	Body *ASTNode
 }
 
 type AST struct {
@@ -298,6 +300,14 @@ func rotateLeft(ast *AST, existingNode, newNode *ASTNode) {
 	return
 }
 
+func consumeSequence(tokens []Token) (*ASTNode, error) {
+	head := &tokens[0]
+	switch head.Typ {
+	case LBRACE:
+	}
+	return nil, nil
+}
+
 func addTokenToTree(ast *AST, lastNode *ASTNode, token *Token) (*ASTNode, error) {
 	node := &ASTNode{
 		Token: token,
@@ -305,6 +315,8 @@ func addTokenToTree(ast *AST, lastNode *ASTNode, token *Token) (*ASTNode, error)
 	switch token.Typ {
 	case ASSIGN:
 		rotateLeft(ast, lastNode, node)
+		return node, nil
+	case SEQUENCE_LITERAL:
 		return node, nil
 	}
 	lastNode.RightChild = node
